@@ -18,7 +18,7 @@ public class AcidRain {
 
     public static void main(String[] args) {
 
-        //Variable
+        //Variable swagggggggg
         Scanner input = new Scanner ( System.in );
 
         //Message
