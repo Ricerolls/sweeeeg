@@ -19,10 +19,14 @@ public class Eratosthenes {
         boolean numbers[] = new boolean[1000];
 
         for (int i = 2; i < numbers.length; i++) {
-            if (numbers[i] = false) {
+            if (numbers[i] == false) {
                 for (int p = 2; p * i < numbers.length; i++) {
                     
                 }
+                if (numbers[i] == true){
+                    
+                }
+                    
         
             }
         }
