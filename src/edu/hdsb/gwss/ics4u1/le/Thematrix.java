@@ -53,9 +53,9 @@ public class Thematrix {
         
 
         
-        for (int i = 0; random.length < 9; i++) {
+        for (int i = 0; random.length < sizeRow; i++) {
             System.out.println();
-            for (int j = 0; random.length[i] < 9; j++) {
+            for (int j = 0; random.length[i] < sizeCol; j++) {
             random[i][j] =(int)(Math.random() * 10);   
             System.out.print(random[i][j]);
             }
