@@ -12,6 +12,7 @@ import java.util.Scanner;
  * @author 1leste
  */
 public class Thematrix {
+    
 
 //    public static void int The_Random_Matrix == 1;
 //    public static void int The_Transpose_Matrix == 2;
@@ -25,7 +26,17 @@ public class Thematrix {
         Scanner input = new Scanner(System.in);
         int userOption = choice();
         System.out.println("----------Welcome to the Matrix Program!---------------\n");
+        choice();
         generateMatrix();
+
+        if (userOption == 1) {
+            generateMatrix();
+
+            if (userOption == 2) {
+//                generateTranspose();
+            }
+
+        }
 
     }
 
@@ -44,23 +55,44 @@ public class Thematrix {
 
     public static int[][] generateMatrix() {
         Scanner input = new Scanner(System.in);
-        
+
         System.out.println("How many rows would you like?");
         int sizeRow = input.nextInt();
         System.out.println("How many col would you like?");
         int sizeCol = input.nextInt();
-        int[][] random = new int[sizeRow][sizeCol];
-        
+        int[][] matrix = new int[sizeRow][sizeCol];
 
-        
-        for (int i = 0; random.length < sizeRow; i++) {
-            System.out.println();
-            for (int j = 0; random.length[i] < sizeCol; j++) {
-            random[i][j] =(int)(Math.random() * 10);   
-            System.out.print(random[i][j]);
+        for (int i = 0; matrix.length < sizeRow; i++) {
+            for (int j = 0; matrix.length < sizeCol; j++) {
+                matrix[i][j] = (int) (Math.random() + 10);
+                System.out.print(matrix[i][j]);
             }
         }
 
-        return random;
+        return matrix;
     }
+
+    public static int[][] generateTranspose(int[][] matrix) {
+//        int[][] transpose = generateMatrix(); //new int[copy.length][copy[0].length];
+
+        for (int row = 0; matrix.length < row; row++) {
+            for (int col = 0; matrix[row].length < col; col++) {
+                System.out.print(matrix[col][row]);
+            }
+//            }transpose[row][col] = copy[col][row];
+        }
+
+        return matrix;
+    }
+
+    public static int[][] multiplyMatrix(int[][] matrix) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("What constant would you like ot multiply the matrix by?");
+        int constant = input.nextInt();
+        for (int row = 0; matrix.length < row; row++) {
+            for (int col = 0; matrix[row].length < col; col++) {
+                matrix[row][col] *= constant;
+            }
+    }
+    return matrix ;
 }
