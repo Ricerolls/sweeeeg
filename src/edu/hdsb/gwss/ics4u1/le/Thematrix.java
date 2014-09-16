@@ -12,7 +12,6 @@ import java.util.Scanner;
  * @author 1leste
  */
 public class Thematrix {
-    
 
 //    public static void int The_Random_Matrix == 1;
 //    public static void int The_Transpose_Matrix == 2;
@@ -85,7 +84,7 @@ public class Thematrix {
         return matrix;
     }
 
-    public static int[][] multiplyMatrix(int[][] matrix) {
+    public static int[][] multiplyMatrixbyConstant(int[][] matrix) {
         Scanner input = new Scanner(System.in);
         System.out.println("What constant would you like ot multiply the matrix by?");
         int constant = input.nextInt();
@@ -93,6 +92,12 @@ public class Thematrix {
             for (int col = 0; matrix[row].length < col; col++) {
                 matrix[row][col] *= constant;
             }
+        }
+        return matrix;
     }
-    return matrix ;
+    public static int[][] multiplyMatrix(int[][] matrix) {
+        return matrix;
 }
+    }
+    
+    
