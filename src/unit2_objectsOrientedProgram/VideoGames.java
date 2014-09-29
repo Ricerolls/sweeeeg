@@ -1,9 +1,12 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package unit2_objectsOrientedProgram;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -12,28 +15,51 @@ package unit2_objectsOrientedProgram;
 public class VideoGames {
 
     public static final int ESRB_RATING_PENDING = 0;
-    public static final int ESRB_RATING_TEEN = 1;
-    public static final int ESRB_RATING_MATURE = 2;
+    public static final int ESRB_RATING_EVERYONE = 1;
+    public static final int ESRB_RATING_TEEN = 2;
+    public static final int ESRB_RATING_MATURE = 3;
     
     public static final String[] ESRB_RATING_NAME = {
-        "Pending", "Teen", "Mature"
+        "Pending", "Everyone", "Teen", "Mature"
     };
     
+    private ArrayList <manufacture> manufacture;
     private double price;
     private int sequel;
     private String game;
-    private boolean valid;
+    private int esrbRating;
+    private boolean validGame;
     private int pirated;
+    
 
     public VideoGames() {
+        
     }
 
-    public VideoGames(double price, int sequel, String gameName, boolean valid, int pirated) {
+    public VideoGames(double price, int sequel, String gameName, boolean validGame, int pirated) {
         this.price = price;
         this.sequel = sequel;
-        this.game = game;
-        this.valid = valid;
+        this.game = "Halo";
+        this.validGame = validGame;
         this.pirated = pirated;
+    }
+
+
+
+    public int getEsrbRating() {
+        return esrbRating;
+    }
+
+    public void setEsrbRating(int esrbRating) {
+        this.esrbRating = esrbRating;
+    }
+
+    public boolean isValidGame() {
+        return validGame;
+    }
+
+    public void setValidGame(boolean validGame) {
+        this.validGame = validGame;
     }
 
     public double getPrice() {
@@ -53,6 +79,7 @@ public class VideoGames {
     }
 
     public String getGame() {
+        
         return game;
     }
 
@@ -60,15 +87,17 @@ public class VideoGames {
         this.game = gameName;
     }
 
-    public boolean isValid() {
-        return valid;
+    public boolean isvalidGame() {
+        
+        return validGame;
     }
 
-    public void setValid(boolean valid) {
-        this.valid = valid;
+    public void setvalidGame(boolean valid) {
+        this.validGame = false;
     }
 
     public int getPirated() {
+        
         return pirated;
     }
 
@@ -94,7 +123,7 @@ public class VideoGames {
         if ((this.game == null) ? (other.game != null) : !this.game.equals(other.game)) {
             return false;
         }
-        if (this.valid != other.valid) {
+        if (this.validGame != other.validGame) {
             return false;
         }
         if (this.pirated != other.pirated) {
@@ -105,10 +134,12 @@ public class VideoGames {
 
     @Override
     public String toString() {
-        return "VideoGames{" + "price=" + price + ", sequel=" + sequel + ", game=" + game + ", valid=" + valid + ", pirated=" + pirated + '}';
+        return "VideoGames{" + "price=" + price + ", sequel=" + sequel + ", game=" + game + ", valid=" + validGame + ", pirated=" + pirated + '}';
     }
     
     public boolean isValid(boolean valid){
+        if (this.esrbRating < 3)
+            valid = true;
         
         return valid;
     }
