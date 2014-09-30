@@ -27,17 +27,18 @@ public class VideoGames {
     private String game;
     private int esrbRating;
     private boolean validGame;
-    private int pirated;
+    private boolean pirated;
 
     public VideoGames() {
     }
 
-    public VideoGames(double price, int sequel, String gameName, boolean validGame, int pirated) {
+    public VideoGames(double price, int sequel, String game, boolean validGame, boolean pirated, int esrbRating) {
         this.price = price;
         this.sequel = sequel;
-        this.game = "Halo" + "Minecraft" + "Call of Duty";
+        this.game = game;
         this.validGame = validGame;
         this.pirated = pirated;
+        this.esrbRating = esrbRating;
     }
 
     public int getEsrbRating() {
@@ -46,9 +47,8 @@ public class VideoGames {
     }
 
     public int setEsrbRating(int esrbRating) {
-        Scanner input = new Scanner(System.in);
         if (this.validGame = true) {
-            this.esrbRating = input.nextInt();
+            this.esrbRating = esrbRating;
             if (this.esrbRating == 0 || this.esrbRating <= 3) {
                 System.out.println(ESRB_RATING_NAME);
             } else if (this.esrbRating != 0 || this.esrbRating > 3) {
@@ -64,10 +64,12 @@ public class VideoGames {
     }
 
     public void setValidGame(boolean validGame) {
+        
         this.validGame = validGame;
     }
 
-    public double getPrice() {
+    public double getPrice(double price) {
+        this.price = price;
         return price;
     }
 
@@ -81,29 +83,28 @@ public class VideoGames {
         return sequel;
     }
 
-    public int setSequel(int sequel) {
-        Scanner input = new Scanner(System.in);
-        this.sequel = input.nextInt();
+    public int addSequel(int sequel) {
+       this.sequel = sequel;
         return sequel;
     }
 
     public String getGame() {
-
+        this.game = game;
         return game;
     }
 
-    public String setGame(String gameName) {
+    public String addGame(String gameName) {
         this.game = gameName;
         return gameName;
     }
 
-    public boolean isvalidGame() {
-
+    public boolean isvalidGame(boolean valid) {
+        this.validGame = valid;
         return validGame;
     }
 
     public boolean setvalidGame(boolean valid) {
-        if (this.setGame(game).equalsIgnoreCase(game)) {
+        if (this.addGame(game).equalsIgnoreCase(game)) {
             this.validGame = true;
         } else {
             System.out.println("Not a valid game");
@@ -112,12 +113,13 @@ public class VideoGames {
         return valid;
     }
 
-    public int getPirated() {
+    public boolean getPirated() {
 
         return pirated;
     }
 
-    public void setPirated(int pirated) {
+    public void setPirated(boolean pirated) {
+        
         this.pirated = pirated;
     }
 
