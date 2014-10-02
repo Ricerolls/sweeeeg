@@ -21,7 +21,7 @@ public class VideoGame {
         "Pending", "Everyone", "Teen", "Mature"
     };
     private double price;
-    private int sequel;
+    
     private String gameName;
     private int esrbRating;
     private boolean validGame;
@@ -30,7 +30,7 @@ public class VideoGame {
     //null constructor
     public VideoGame() {
         this.price = 0;
-        this.sequel = 0;
+        
         this.gameName = null;
         this.esrbRating = 0;
         this.validGame = false;
@@ -41,7 +41,7 @@ public class VideoGame {
 
     public VideoGame(String gameName) {
         this.price = 0;
-        this.sequel = 0;
+        
         this.gameName = gameName;
         this.esrbRating = 0;
         this.validGame = false;
@@ -50,7 +50,7 @@ public class VideoGame {
 
     public VideoGame(double price, int sequel, String gameName, boolean validGame) {
         this.price = price;
-        this.sequel = sequel;
+        
         this.gameName = gameName;
         this.validGame = validGame;
 
@@ -101,15 +101,6 @@ public class VideoGame {
         return price;
     }
 
-    public int getSequel() {
-        return sequel;
-    }
-
-    public int setSequel(int sequel) {
-        this.sequel = sequel;
-
-        return sequel;
-    }
 
     public String getgameName() {
     
@@ -148,6 +139,6 @@ public class VideoGame {
 
     @Override
     public String toString() {
-        return "VideoGames{" + "price=" + price + ", sequel=" + sequel + ", gameName=" + gameName + ", valid=" + validGame + '}';
+        return "VideoGames{" + "price=" + price + ", gameName=" + gameName + ", valid=" + validGame + '}';
     }
 }
