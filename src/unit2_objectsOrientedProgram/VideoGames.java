@@ -21,7 +21,6 @@ public class VideoGame {
         "Pending", "Everyone", "Teen", "Mature"
     };
     private double price;
-    
     private String gameName;
     private int esrbRating;
     private boolean validGame;
@@ -30,7 +29,6 @@ public class VideoGame {
     //null constructor
     public VideoGame() {
         this.price = 0;
-        
         this.gameName = null;
         this.esrbRating = 0;
         this.validGame = false;
@@ -41,17 +39,16 @@ public class VideoGame {
 
     public VideoGame(String gameName) {
         this.price = 0;
-        
         this.gameName = gameName;
         this.esrbRating = 0;
         this.validGame = false;
 
     }
 
-    public VideoGame(double price, int sequel, String gameName, boolean validGame) {
+    public VideoGame(double price, String gameName, boolean validGame, int esrbRating) {
         this.price = price;
-        
         this.gameName = gameName;
+        this.esrbRating = esrbRating;
         this.validGame = validGame;
 
     }
@@ -83,7 +80,7 @@ public class VideoGame {
     }
 
     public boolean isValidGame(boolean valid) {
-        if (this.gameName.length() < 1 || this.price < 59.98 || this.sequel < 1) {
+        if (this.gameName.length() < 1 || this.price < 59.99) {
             valid = false;
         } else {
             valid = true;
