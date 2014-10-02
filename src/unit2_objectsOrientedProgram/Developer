@@ -1,0 +1,128 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package unit2_objectOrientedProgram;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author 1leste
+ */
+public class Developer {
+    //list of develeper
+
+    private static int sequels = 0;
+    private static String[] developerList = {"Bungie", "Infinity Ward", "Mojang",
+        "Blizzard"};
+    private String developerName;
+    private ArrayList gameList;
+
+    //Null
+    public Developer() {
+        this.developerName = "";
+        this.gameList = new ArrayList();
+
+    }
+
+    //primary constructor
+    public Developer(String developerName) {
+        this.developerName = developerName;
+        this.gameList = new ArrayList();
+
+    }
+
+    //Info of constructor
+    public Developer(String developerName, ArrayList gameList) {
+        this.developerName = developerName;
+        this.gameList = new ArrayList();
+
+
+    }
+
+    public static String[] getDeveloperList() {
+        return developerList;
+    }
+
+    public static void setDeveloperList(String[] developerList) {
+        Developer.developerList = developerList;
+    }
+
+    public String getDeveloperName() {
+        return developerName;
+    }
+
+    public void setDeveloperName(String developerName) {
+        this.developerName = developerName;
+    }
+
+    public ArrayList getGameList() {
+        return gameList;
+    }
+
+    public void setGameList(ArrayList gameList) {
+        this.gameList = gameList;
+    }
+    
+//add game
+    public boolean addVideoGame(VideoGame game) {
+        if (game.isValidGame(true)) {
+            
+            for (int i = 0; i < this.gameList.size(); i++) {
+                this.gameList.add(i, game);
+                System.out.println("New game has been added!");
+                sequels++;
+            }
+            return true;
+        } else {
+            System.out.println("Failed to add new game.");
+            return false;
+        }
+
+    }
+//remove game
+    public boolean removeVideoGame(VideoGame game) {
+        if (game.isValidGame(true)) {
+            if (game.equals(game)) {
+                for (int i = 0; i < this.gameList.size(); i++) {
+                    this.getGameList().remove(game);
+                    System.out.println("Successfully removed a game!");
+                    sequels--;
+                    break;
+                }
+                return true;
+            }
+        } else {
+            System.out.println("Removed game not successful.");
+        }
+        return false;
+
+    }
+//get video game
+    public boolean getVideoGame(VideoGame game) {
+        if (game.isValidGame(true)) {
+            this.getGameList().get(sequels);
+            System.out.println("We sucessfully got: "+ getGameList());
+            
+            
+        }
+        return false;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean valid = false;
+
+        if (obj == null) {
+            return valid;
+        }
+        if (getClass() != obj.getClass()) {
+            return valid;
+        }
+        if ((Developer) obj) .getDeveloperName().equals(this.developerName){
+            valid = true;
+        }           
+        return valid;
+    }
+}
