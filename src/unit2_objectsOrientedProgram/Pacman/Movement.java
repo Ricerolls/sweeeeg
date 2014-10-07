@@ -9,19 +9,13 @@ package unit2_objectsOrientedProgram.Pacman;
  *
  * @author 1leste
  */
-public class Ghost extends PacmanCharacter{
-
-    private int kills;
-
-
-
-public void killedPacman() {
-
-}
-
-public void draw()  {
-//c.setColor (this.color);
-//c.fillRect (xLoc, yLoc);
-}
-
+public interface Movement {
+    
+    public void moveLeft();
+    public void moveUp();
+    public void moveDown();
+    public void moveRight();
+    public void erase();
+    public void draw();
+    
 }

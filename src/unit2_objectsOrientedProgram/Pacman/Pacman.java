@@ -9,7 +9,7 @@ package unit2_objectsOrientedProgram.Pacman;
  *
  * @author 1leste
  */
-public class Pacman {
+public class Pacman extends PacmanCharacter {
 
 public static final int radius = 50;
     
@@ -19,10 +19,11 @@ private int score;
 private int livesRemaining;
 private int orientation;
 private boolean living;
+private  int mouthopen;
 
 
-public pacman() {
-
+public void pacman() {
+ 
 }
 
 
@@ -55,8 +56,7 @@ public void eatGhost()  {
 }
 
 public void draw()  {
-c.setColor (Color.yellow)
-c.FillArc(xLoc, yLoc, radius, radius, 0, 300);
+
 
 }
 }

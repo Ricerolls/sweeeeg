@@ -15,6 +15,7 @@ import hsa.Console;
 public class PacmanTest {
 
     Console c = new Console();
+    
         //PacmanCharacter.setConsole( c );
 
     // New Pacman

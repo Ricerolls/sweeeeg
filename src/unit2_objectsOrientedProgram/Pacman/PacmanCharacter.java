@@ -12,12 +12,22 @@ import java.io.Console;
  * @author 1leste
  */
 //thought abstract
-public abstract class PacmanCharacter {
+public abstract class PacmanCharacter implements Movement {
     
  // CLASS VARIABLES
-    protected static Console c;
+    public static Console c = new Console();
+    
+    public static int STEP_SIZE = 10;
+    public static int NO_STEP = 0;
+    public static int STEP_UP = 1;
+    public static int STEP_LEFT = 2;
+    public static int STEP_RIGHT = 3;
+    public static int STEP_DOWN = 4;
+    
+    
     
     // OBJECT VARIABLES
+    private int direction;
     private boolean alive;
     private int xLoc;
     private int yLoc;
@@ -70,26 +80,50 @@ public abstract class PacmanCharacter {
     }
     
     public void moveLeft( ) {
-        
+        this.erase();
+        this.xLoc = this.xLoc - STEP_SIZE;
+        this.draw();
     }
     
     public void moveRight( ) {
-        
+        this.erase();
+        this.xLoc = this.xLoc + STEP_SIZE;
+        this.draw();
     }
     
     public void moveUp( ) {
-        
+        this.erase();
+        this.yLoc = this.yLoc + STEP_SIZE;
+        this.draw();
     }
     
     public void moveDown( ) {
+        this.erase();
+        this.yLoc = this.yLoc - STEP_SIZE;
+        this.draw();
+    }
+    
+    public void move (){
+        
+        if (direction == STEP_UP){
+            moveUp();
+        } else if (direction == STEP_LEFT){
+            moveLeft();
+        } else if (direction == STEP_RIGHT) {
+            moveRight();
+        } else if (direction == STEP_DOWN) {
+            moveDown();
+        } else if (direction == NO_STEP) {
+            
+        }
+            
+    }
+    
+    public void draw() {
         
     }
     
-    private void draw( ) {
-        
-    }
-    
-    private void erase( ) {
+    public void erase( ) {
         
     }
    
