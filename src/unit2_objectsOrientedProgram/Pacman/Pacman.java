@@ -5,58 +5,57 @@
  */
 package unit2_objectsOrientedProgram.Pacman;
 
+import java.awt.Color;
+
 /**
  *
  * @author 1leste
  */
 public class Pacman extends PacmanCharacter {
 
-public static final int radius = 50;
+    private int xLoc;
+    private int yLoc;
+    private Color color;
+
+    private int score;
+    private int livesRemaining;
+    private int orientation;
+    private boolean living;
+    private int mouthopen;
     
-private int xLoc;
-private int yLoc;
-private int score;
-private int livesRemaining;
-private int orientation;
-private boolean living;
-private  int mouthopen;
+    public Pacman(int xLoc, int yLoc, Color color, boolean alive) {
+        this.xLoc = xLoc;
+        this.yLoc = yLoc;
+        this.color = color;
+    }
 
+    public void die() {
 
-public void pacman() {
- 
-}
+    }
 
+    public void reborn() {
 
-public void die() {
+    }
 
-}
+    public void powerUp() {
 
+    }
 
-public void reborn() {
+    public void powerDown() {
 
-}
+    }
 
+    public void IncreaseScore() {
 
-public void powerUp() {
+    }
 
-}
+    public void eatGhost() {
 
+    }
 
-public void powerDown() {
-
-}
-
-
-public void IncreaseScore() {
-
-}
-
-public void eatGhost()  {
-
-}
-
-public void draw()  {
-
-
-}
+    public void draw() {
+//c.drawOval(xLoc, yLoc, radius, radius);
+        c.setColor(Color.ORANGE);
+        c.fillArc(xLoc, yLoc, radius, radius, 30, 300);
+    }
 }

@@ -5,18 +5,20 @@
  */
 package unit2_objectsOrientedProgram.Pacman;
 
-import java.io.Console;
+import hsa.Console;
+
+
 
 /**
  *
  * @author 1leste
  */
 //thought abstract
-public abstract class PacmanCharacter implements Movement {
+public class PacmanCharacter implements Movement {
     
  // CLASS VARIABLES
     public static Console c = new Console();
-    
+    public static final int radius = 50;
     public static int STEP_SIZE = 10;
     public static int NO_STEP = 0;
     public static int STEP_UP = 1;

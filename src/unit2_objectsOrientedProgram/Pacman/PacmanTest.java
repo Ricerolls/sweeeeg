@@ -6,7 +6,7 @@
 package unit2_objectsOrientedProgram.Pacman;
 
 import hsa.Console;
-
+import java.awt.Color;
 
 /**
  *
@@ -14,14 +14,19 @@ import hsa.Console;
  */
 public class PacmanTest {
 
-    Console c = new Console();
-    
-        //PacmanCharacter.setConsole( c );
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Console c = new Console();
 
-    // New Pacman
-    PacmanCharacter pacman = new PacmanCharacter();
-     Pacman p = new Pacman();
-     Ghost g = new Ghost();
+//        PacmanCharacter.setConsole( c );
+        // New Pacman
+        PacmanCharacter Pacman = new PacmanCharacter();
+        Pacman p = new Pacman(0, 0, Color.ORANGE, true);
+        Ghost g = new Ghost(0, 0, Color.red, true);
+        p.draw();
+        g.draw();
+    }
 
 }
-
