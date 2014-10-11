@@ -8,7 +8,6 @@ package unit2_objectsOrientedProgram.Pacman;
 import hsa.Console;
 
 
-
 /**
  *
  * @author 1leste
@@ -31,14 +30,15 @@ public class PacmanCharacter implements Movement {
     // OBJECT VARIABLES
     private int direction;
     private boolean alive;
-    private int xLoc;
-    private int yLoc;
+    protected int xLoc;
+    protected int yLoc;
 
     public PacmanCharacter() {
        
         if( c == null ) {
             System.out.println( "WARN: HSA Console NOT set." );
         }
+        this.direction = (int)(Math.random()*5)+4;
     }
     
     public PacmanCharacter( Console hsaConsole ) {
@@ -54,6 +54,11 @@ public class PacmanCharacter implements Movement {
         this.xLoc = xLoc;
         this.yLoc = yLoc;
     }        
+
+    @Override
+    public String toString() {
+        return "PacmanCharacter{" + "direction=" + direction + ", alive=" + alive + ", xLoc=" + xLoc + ", yLoc=" + yLoc + '}';
+    }
     
     public boolean isIsAlive() {
         return alive;

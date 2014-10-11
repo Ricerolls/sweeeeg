@@ -14,25 +14,46 @@ import java.awt.Color;
 public class Ghost extends PacmanCharacter {
 
     private int kills;
-    private int xLoc;
-    private int yLoc;
     private Color color;
-   
 
     public Ghost(int xLoc, int yLoc, Color color, boolean alive) {
-     this.xLoc = 50;
+        super(alive, xLoc, yLoc);
     }
 
     public void killedPacman() {
-
     }
 
+    @Override
     public void draw() {
         c.setColor(Color.red);
         c.fillOval(this.xLoc, this.yLoc, radius, radius);
         c.fillRect(this.xLoc, this.yLoc + radius / 2, radius, radius);
-       
+
 
     }
 
-}
+    @Override
+    public String toString() {
+        return "Ghost{" + "kills=" + kills + ", color=" + color + '}';
+    }
+
+    @Override
+    public void moveLeft() {
+        super.moveLeft();
+    }
+
+    @Override
+    public void moveRight() {
+        super.moveRight();
+    }
+
+    @Override
+    public void moveUp() {
+        super.moveUp();
+    }
+    @Override
+        public void moveDown(){
+            super.moveDown();
+        }
+
+    }

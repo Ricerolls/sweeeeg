@@ -16,7 +16,8 @@ public class Pacman extends PacmanCharacter {
     private int xLoc;
     private int yLoc;
     private Color color;
-
+    
+    private boolean edible;
     private int score;
     private int livesRemaining;
     private int orientation;
@@ -24,13 +25,15 @@ public class Pacman extends PacmanCharacter {
     private int mouthopen;
     
     public Pacman(int xLoc, int yLoc, Color color, boolean alive) {
-        this.xLoc = xLoc;
-        this.yLoc = yLoc;
-        this.color = color;
+        
+        super(alive, xLoc,yLoc);
+        this.score = 0;
+        this.livesRemaining = 0;
+        
     }
 
     public void die() {
-
+        this.livesRemaining = livesRemaining - 1;
     }
 
     public void reborn() {
@@ -38,24 +41,50 @@ public class Pacman extends PacmanCharacter {
     }
 
     public void powerUp() {
-
+        this.edible = true;
     }
 
     public void powerDown() {
-
+        this.edible = false;
     }
 
     public void IncreaseScore() {
-
+        this.score = score + 10;
     }
 
     public void eatGhost() {
-
+        
     }
 
+    @Override
     public void draw() {
 //c.drawOval(xLoc, yLoc, radius, radius);
         c.setColor(Color.ORANGE);
-        c.fillArc(xLoc, yLoc, radius, radius, 30, 300);
+        c.fillArc(xLoc, yLoc, radius, radius, 30, 300);     
     }
+    @Override
+    public void erase(){
+        c.setColor(Color.white);
+        c.fillOval(xLoc, yLoc, radius, radius);
+        
+    }
+     @Override
+    public void moveLeft() {
+        super.moveLeft();
+    }
+
+    @Override
+    public void moveRight() {
+        super.moveRight();
+    }
+
+    @Override
+    public void moveUp() {
+        super.moveUp();
+    }
+    @Override
+        public void moveDown(){
+            super.moveDown();
+        }
+    
 }
