@@ -13,8 +13,7 @@ import java.awt.Color;
  */
 public class Pacman extends PacmanCharacter {
 
-    private int xLoc;
-    private int yLoc;
+   
     private Color color;
     
     private boolean edible;
@@ -56,12 +55,14 @@ public class Pacman extends PacmanCharacter {
         
     }
 
+    //draws pacman
     @Override
     public void draw() {
 //c.drawOval(xLoc, yLoc, radius, radius);
         c.setColor(Color.ORANGE);
         c.fillArc(xLoc, yLoc, radius, radius, 30, 300);     
     }
+    //removes duplicate pacman
     @Override
     public void erase(){
         c.setColor(Color.white);

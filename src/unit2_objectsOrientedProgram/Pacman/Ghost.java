@@ -6,6 +6,8 @@
 package unit2_objectsOrientedProgram.Pacman;
 
 import java.awt.Color;
+import static unit2_objectsOrientedProgram.Pacman.PacmanCharacter.c;
+import static unit2_objectsOrientedProgram.Pacman.PacmanCharacter.radius;
 
 /**
  *
@@ -23,13 +25,21 @@ public class Ghost extends PacmanCharacter {
     public void killedPacman() {
     }
 
+    //draw ghost only
     @Override
     public void draw() {
         c.setColor(Color.red);
         c.fillOval(this.xLoc, this.yLoc, radius, radius);
         c.fillRect(this.xLoc, this.yLoc + radius / 2, radius, radius);
-
-
+    }
+    
+    //removes duplicate ghost
+    @Override
+    public void erase() {
+        c.setColor(Color.WHITE);
+        c.fillOval(xLoc, yLoc, radius, radius);
+        c.fillRect(this.xLoc, this.yLoc + radius / 2, radius, radius);
+        
     }
 
     @Override

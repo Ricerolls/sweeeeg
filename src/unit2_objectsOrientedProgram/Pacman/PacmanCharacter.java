@@ -13,7 +13,7 @@ import hsa.Console;
  * @author 1leste
  */
 //thought abstract
-public class PacmanCharacter implements Movement {
+public abstract class PacmanCharacter implements Movement {
     
  // CLASS VARIABLES
     public static Console c = new Console();
@@ -74,7 +74,7 @@ public class PacmanCharacter implements Movement {
     }
 
     public void setxLoc( int xLoc ) {
-        this.xLoc = this.xLoc + 10;
+        
         this.xLoc = xLoc;
     }
 
@@ -110,6 +110,7 @@ public class PacmanCharacter implements Movement {
         this.draw();
     }
     
+    //direction of the characters moving
     public void move (){
         
         if (direction == STEP_UP){
@@ -126,20 +127,14 @@ public class PacmanCharacter implements Movement {
             
     }
     
-    public void draw() {
-        
-    }
-    
-    public void erase( ) {
-        
-    }
+  
    
     /**
      * The parent class, PacmanCharacter, must have reference to the HSA Console.
      * Set it ONCE.
      * @param hsaConsole 
      */
-    public  void setConsole( Console hsaConsole ) {
+    public static  void setConsole( Console hsaConsole ) {
         c = hsaConsole;
     }
     
