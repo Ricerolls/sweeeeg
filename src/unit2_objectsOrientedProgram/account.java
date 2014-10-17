@@ -12,9 +12,20 @@ import java.util.Scanner;
  * @author 1leste
  */
 public class account {
+    
+    public static final int ACCOUNT_TYPE_UNKNOWN = 0;
+    public static final int ACCOUNT_TYPE_SAVING = 1;
+    public static final int ACCOUNT_TYPE_CHEQUING = 2;
+    
+    public static final String[] ACCOUNT_TYPE_NAME = {
+      "Unknown", "Savings", "Chequing"  
+    }; 
+    
+    private bankClient accountOwner;
     private String account;
     private double balance;
     private int branchNumber;
+    private int accountType;
     private int bankNumber;
     private int bankPin;
     private boolean active;
@@ -23,12 +34,12 @@ public class account {
     }
 
     public account(String account, double balance, int branchNumber, int bankNumber, int bankPin, boolean active) {
-        this.account = "mike";
-        this.balance = 78.70;
-        this.branchNumber = 7777;
-        this.bankNumber = 666;
-        this.bankPin = 1234;
-        this.active = true;
+        this.account = account;
+        this.balance = balance;
+        this.branchNumber = branchNumber;
+        this.bankNumber = bankNumber;
+        this.bankPin = bankPin;
+        this.active = active;
         
     }
 
@@ -82,6 +93,23 @@ public class account {
         this.bankPin = bankPin;
        
     }
+    
+    public bankClient getAccountOwner() {
+        return accountOwner;
+    }
+
+    public void setAccountOwner(bankClient accountOwner) {
+        this.accountOwner = accountOwner;
+    }
+
+    public int getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(int accountType) {
+        this.accountType = accountType;
+    }
+    
     public double deposit(double accountDeposit) {
     if (this.active)
         this.balance = this.balance + accountDeposit;

@@ -71,6 +71,7 @@ public class Pacman extends PacmanCharacter {
     }
      @Override
     public void moveLeft() {
+        
         super.moveLeft();
     }
 

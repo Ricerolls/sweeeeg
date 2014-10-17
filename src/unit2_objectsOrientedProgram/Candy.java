@@ -20,6 +20,9 @@ public class Candy {
     private double height;
     private int amountOfCandy;
 
+    public Candy() {
+    }
+
     public Candy(String colourOfWrapper) {
         this.colourOfWrapper = colourOfWrapper;
     }
