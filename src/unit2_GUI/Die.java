@@ -5,22 +5,27 @@
  */
 package unit2_GUI;
 
+import java.awt.Color;
+
 /**
  *
  * @author 1leste
  */
-public class Die {
+public class Die extends DiePanel {
     private int dieValue;
     private boolean validValue;
+    private Color color;
 
     public Die() {
         this.dieValue=2;
         this.validValue=true;
+        this.color = Color.orange;
     }
 
-    public Die(int dieValue, boolean validValue) {
+    public Die(int dieValue, boolean validValue, Color color) {
         this.dieValue = dieValue;
         this.validValue = validValue;
+        this.color = color;
     }
     
 
