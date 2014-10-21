@@ -11,7 +11,7 @@ import javax.swing.JFrame;
  *
  * @author 1leste
  */
-public class DieGame {
+public class DieGame extends JFrame {
 
     /**
      * @param args the command line arguments
@@ -21,11 +21,11 @@ public class DieGame {
     guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     guiWindow.setSize(600,600);
     
-    
-    
-    
     guiWindow.setVisible(true);
     
+    
+    DiePanel dice1 = new DiePanel(dotHeight, dotWidth, diceHeight, diceWidth, xLoc, yLoc);
+   
     
     //JPanel dicePanel = new JPanel():
     //dicePanel = new JPanel (setLayout(new Flowlayout));

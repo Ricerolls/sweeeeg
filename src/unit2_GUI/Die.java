@@ -11,10 +11,10 @@ import java.awt.Color;
  *
  * @author 1leste
  */
-public class Die extends DiePanel {
-    private int dieValue;
-    private boolean validValue;
-    private Color color;
+public class Die  {
+    public int dieValue;
+    public boolean validValue;
+    public Color color;
 
     public Die() {
         this.dieValue=2;
@@ -29,12 +29,10 @@ public class Die extends DiePanel {
     }
     
 
-public int rollDie() {
-//    (int) ( Math.random() * 10 ); 
+public int rollDie(int dieValue) {
+    this.dieValue = (int) ( Math.random() * 6 ); 
     return dieValue;
 }
-
-
 
 
 }
