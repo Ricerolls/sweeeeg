@@ -5,42 +5,49 @@
  */
 package unit2_GUI;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  *
  * @author 1leste
  */
-public class DieGame extends JFrame {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-         JFrame guiWindow = new JFrame("DieGame");
+public class DieGame extends JFrame implements ActionListener {
+    
+    Die die = new Die();
+    JFrame guiWindow = new JFrame("DieGame");
+    DiePanel dice1 = new DiePanel();
+    DiePanel dice2 = new DiePanel();
+    JPanel dicePanel = new JPanel();
+    JButton button = new JButton("Roll");
+    int valueDie = 2;
+    
+    
+    
+//    DiePanel = new JPanel (setLayout(new Flowlayout));
+    
+    public DieGame(){
+        
     guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     guiWindow.setSize(600,600);
-    
     guiWindow.setVisible(true);
     
+    dicePanel.setSize(100, 100);
+    dicePanel.setVisible(true);
     
-    DiePanel dice1 = new DiePanel(dotHeight, dotWidth, diceHeight, diceWidth, xLoc, yLoc);
-   
+    button.setSize(100,100);
+    button.setVisible(true);
     
-    //JPanel dicePanel = new JPanel():
-    //dicePanel = new JPanel (setLayout(new Flowlayout));
-    //JPanel.setLayout(new FlowLayout);
-    //dicePanel.add(dice1)
+//    JPanel.setLayout(new FlowLayout);
+//    dicePanel.add(dice1);
+//    
     
-    //jButton button = new jButton();
-    
-    
-    //window.setLayout(BoarderLayout(20,20);
-    //window.add(diePanel, BoarderLayout.PAGE_START)
-    //window.add (new JButton(1));
-    
-   //oubkic void actionPreform (ActionListener e)
-    //die1.roll();
     }
+    
+        
+   public void ActionPreform (ActionListener e) {
+    dice1.dieValue = valueDie;
+    dice2.dieValue = valueDie;
+    
+   }
     
 }

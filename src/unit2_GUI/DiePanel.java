@@ -24,8 +24,8 @@ public class DiePanel extends  Die {
     public DiePanel() {
         this.dotHeight = 20;
         this.dotWidth = 20;
-        this.diceHeight = 10;
-        this.diceWidth = 10;
+        this.diceHeight = 100;
+        this.diceWidth = 100;
         this.xLoc = 50;
         this.yLoc = 50;
     }
