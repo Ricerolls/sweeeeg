@@ -41,6 +41,7 @@ public class DiePanel extends  Die {
     }
 
     public void paintComponent(Graphics g) {
+        
         g.setColor(this.color);
         g.drawRect(xLoc, yLoc, diceWidth, diceHeight);
         
