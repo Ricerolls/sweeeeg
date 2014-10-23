@@ -20,6 +20,7 @@ public class DieClient {
     public static void main(String[] args) {
     
         DieClient DieGame = new DieClient();
+        
 //    JFrame guiWindow = new JFrame("DieGame");
 //    guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //    guiWindow.setSize(600,600);

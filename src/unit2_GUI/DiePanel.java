@@ -80,7 +80,7 @@ public class DiePanel extends  Die {
         g.setColor(Color.WHITE);
         col--;
         row--;
-        g.drawOval(dotWidth + (3 * dotWidth*row), dotWidth + (3 * dotWidth*col), diceHeight /10, diceWidth/10);
+        g.drawOval(dotWidth + (3 * dotWidth*row), dotWidth + (3 * dotHeight*col), diceHeight /10, diceWidth/10);
     }
     
 

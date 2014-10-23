@@ -14,10 +14,11 @@ import javax.swing.*;
 public class DieGame extends JFrame implements ActionListener {
     
     Die die = new Die();
-    JFrame guiWindow = new JFrame("DieGame");
+    JFrame guiWindow = new JFrame("Die Game");
     DiePanel dice1 = new DiePanel();
     DiePanel dice2 = new DiePanel();
     JPanel dicePanel = new JPanel();
+    
     JButton button = new JButton("Roll");
     int valueDie = 2;
     
@@ -26,7 +27,8 @@ public class DieGame extends JFrame implements ActionListener {
 //    DiePanel = new JPanel (setLayout(new Flowlayout));
     
     public DieGame(){
-        
+    
+    
     guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     guiWindow.setSize(600,600);
     guiWindow.setVisible(true);
@@ -45,8 +47,15 @@ public class DieGame extends JFrame implements ActionListener {
     
         
    public void ActionPreform (ActionListener e) {
+    
+       
     dice1.dieValue = valueDie;
     dice2.dieValue = valueDie;
+    die.totalValue = dice1.dieValue + dice2.dieValue;
+    
+    dicePanel.repaint();
+    
+    
     
    }
     

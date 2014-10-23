@@ -13,18 +13,18 @@ import java.awt.Color;
  */
 public class Die  {
     public int dieValue;
-    public boolean validValue;
+    public int totalValue;
     public Color color;
 
     public Die() {
         this.dieValue=2;
-        this.validValue=true;
+        this.totalValue=2;
         this.color = Color.orange;
     }
 
-    public Die(int dieValue, boolean validValue, Color color) {
+    public Die(int dieValue, int totalValue, Color color) {
         this.dieValue = dieValue;
-        this.validValue = validValue;
+        this.totalValue = totalValue;
         this.color = color;
     }
     
