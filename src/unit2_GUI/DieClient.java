@@ -5,9 +5,12 @@
  */
 package unit2_GUI;
 
-import javax.swing.*;
-import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+
 
 /**
  *
@@ -20,34 +23,49 @@ public class DieClient extends JFrame implements ActionListener {
     DiePanel dice1 = new DiePanel();
     DiePanel dice2 = new DiePanel();
     JPanel panel = new JPanel();
-
     JButton button = new JButton("Roll");
     int valueDie = 2;
 
     public DieClient() {
+        guiWindow.setPreferredSize(new Dimension(600, 600));
         guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        guiWindow.setSize(600, 600);
+        this.setResizable(true);
 
-        panel.add(button);
-        
-        
-        button.setSize(100, 100);
+        panel.add(dice1);
+        panel.add(dice2);
 
+        button.setSize(50, 50);
+        panel.add(button);       
+        button.addActionListener(this);
+
+        this.setLayout(new BorderLayout());
+        this.add(panel, BorderLayout.SOUTH);
+        this.add(panel, BorderLayout.LINE_START);
+        this.add(button, BorderLayout.CENTER);
+
+        //set visable and size by set value
+        this.pack();
         guiWindow.setVisible(true);
+
+
     }
+    
+ 
+    public void ActionPreformed(ActionEvent e) {
 
-    public void ActionEvent(ActionListener e) {
-
-        
-        if ( e.) {
-            
-        }
         dice1.dieValue = valueDie;
         dice2.dieValue = valueDie;
         die.totalValue = dice1.dieValue + dice2.dieValue;
-
+        if (e.getSource() == button) {
+            dice1.rollDie(valueDie);
+            dice1.repaint();
+            dice2.rollDie(valueDie);
+            this.update(this.getGraphics());
+        }
         if (die.totalValue != 7) {
             System.out.println("Roll Again");
+        } else if (dice1.dieValue == dice2.dieValue) {
+            System.out.println("Win!");
         }
 
     }
@@ -61,30 +79,6 @@ public class DieClient extends JFrame implements ActionListener {
             public void run() {
                 new DieGame().setVisible(true);
             }
-        }
-        );
-
-//    JFrame guiWindow = new JFrame("DieGame");
-//    guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//    guiWindow.setSize(600,600);
-//    
-//    
-//    
-//   
-//    DiePanel dice1 = new DiePanel();
-//    DiePanel dice2 = new DiePanel();
-//   
-//    guiWindow.setVisible(true);
-    //JPanel dicePanel = new JPanel():
-        //dicePanel = new JPanel (setLayout(new Flowlayout));
-        //JPanel.setLayout(new FlowLayout);
-        //dicePanel.add(dice1)
-    //jButton button = new jButton();
-//    window.setLayout(BoarderLayout(20,20);
-//    window.add(diePanel, BoarderLayout.PAGE_START)
-//    window.add (new JButton(1));
-   //oubkic void actionPreform (ActionListener e)
-        //die1.roll();
+        });
     }
-
 }

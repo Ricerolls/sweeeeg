@@ -11,9 +11,9 @@ import java.awt.Color;
  *
  * @author 1leste
  */
-public class Die  {
-    public int dieValue;
-    public int totalValue;
+public class Die extends JPanel {
+    protected int dieValue;
+    protected int totalValue;
     public Color color;
 
     public Die() {

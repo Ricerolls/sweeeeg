@@ -40,8 +40,10 @@ public class DiePanel extends  Die {
 
     }
 
+    @Override
     public void paintComponent(Graphics g) {
         
+        super.paintComponent(g);
         g.setColor(this.color);
         g.drawRect(xLoc, yLoc, diceWidth, diceHeight);
         
