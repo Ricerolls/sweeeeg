@@ -18,6 +18,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -31,7 +32,10 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
     private JPanel topDicePanel;
     private JPanel midDicePanel;
     private JPanel botDicePanel;
-    private JLabel[][] dice;
+    private JPanel fixPanel;
+    private JPanel emptyPanel;
+    private JButton button;
+    private Die[][] dice;
 
     public PriceIsRight() {
         init();
@@ -63,33 +67,43 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
         // BOT DICE; LOW
         this.botDicePanel = new JPanel();
         this.botDicePanel.setBorder( BorderFactory.createLineBorder( Color.BLUE ) );
-
+        
+        //empty
+        this.emptyPanel = new JPanel();
+        this.emptyPanel.setBorder( BorderFactory.createLineBorder( Color.BLACK ) );
+        
         // GENERATE DIE, put them in TOP/BOT Dice Panel
-        this.dice = new JLabel[3][4];
+        this.dice = new Die[3][4];
         initDice();
-
+        
+        //Button
+        this.button = new JButton("Roll");
+        this.button.addActionListener(this);
+        this.button.setActionCommand("roll");
+        
         // TOP / BOT Dice Panel
         this.middlePanel.add( topDicePanel );
         this.middlePanel.add( midDicePanel );
         this.middlePanel.add( botDicePanel );
+        this.middlePanel.add( emptyPanel);
 
         // ADD ITEMS TO middlePanel
         this.add(middlePanel, BorderLayout.CENTER );
         this.add( new JLabel( "PAGE_START" ), BorderLayout.PAGE_START );
-        this.add( new JLabel( "LINE_START" ), BorderLayout.LINE_START );
-        this.add( new JLabel( "LINE_END" ), BorderLayout.LINE_END );
-        this.add( new JLabel( "PAGE_END" ), BorderLayout.PAGE_END );
+        this.add(button, BorderLayout.LINE_START );
+        this.add( button, BorderLayout.LINE_END );
+        this.add( emptyPanel, BorderLayout.PAGE_END );
         //this.pack();
 
     }
 
     private void initDice() {
-        JLabel die;
+        Die die = new Die();
         Dimension d = new Dimension( 100, 100 );
         for ( int row = 0; row < dice.length; row++ ) {
             for ( int col = 0; col < dice[row].length; col++ ) {
 
-                die = new JLabel( row + "-" + col );
+               
                 die.setPreferredSize( d );
                 die.setSize( d );
                 die.setName( row + "-" + col );
@@ -120,7 +134,10 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
     public void actionPerformed( ActionEvent e ) {
         
         // BUTTON PRESSED!!
-        System.out.println( "DO SOMETHING?" );
+        if (e.getActionCommand().equals("roll")) {
+          System.out.println( "DO SOMETHING?" );  
+        }
+        
         
         
     }   
