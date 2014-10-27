@@ -45,6 +45,9 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
 
     public void init() {
 
+        for (int i = 0; i < 4; i++) {
+            die[i] = new DiePanel();
+        }
         // MAIN WINDOW; The Price is Righta
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("The Price is Right!");
@@ -69,14 +72,10 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
         // BOT DICE; LOW
         this.botDicePanel = new JPanel();
         this.botDicePanel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-        for (int i = 0; i < 4; i++) {
-            die[i] = new DiePanel();
-        }
-
-
 
         // GENERATE DIE, put them in TOP/BOT Dice Panel
         this.emptyPanel = new JPanel[3][4];
+        this.blackPanel = new JPanel[3][4];
         this.fixPanel = new JPanel[3][4];
         this.dice = new Die[3][4];
         initDice();
@@ -109,7 +108,7 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
         for (int i = 0; i < 4; i++) {
             die[i].setPreferredSize(d);
             die[i].addMouseListener(this);
-            die[i].setVisible(false);
+            die[i].setVisible(true);
         }
         for (int row = 0; row < dice.length; row++) {
             for (int col = 0; col < dice[row].length; col++) {
@@ -124,9 +123,9 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
                 blackPanel[row][col].setPreferredSize(d);
                 blackPanel[row][col].setName(row + "-" + col);
                 blackPanel[row][col].setBackground(Color.black);
-                
-                
-                
+
+
+
                 if ((row + col) % 2 == 0) {
                     for (int i = 0; i < 4; i++) {
                         die[i].setBorder(BorderFactory.createLineBorder(Color.RED));
@@ -139,11 +138,16 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
                     }
                 }
 
+                this.dice[row][col] = new JPanel();
                 if (row == 0) {
+                    this.dice[row][col].add(emptyPanel[row][col]);
                     this.topDicePanel.add(this.dice[row][col]);
                 } else if (row == 1) {
+                    blackPanel[row][col].add(die[col]);
+                    this.dice[row][col].add(blackPanel[row][col]);
                     this.midDicePanel.add(this.dice[row][col]);
                 } else {
+                    this.dice[row][col].add(emptyPanel[row][col]);
                     this.botDicePanel.add(this.dice[row][col]);
                 }
             }
@@ -158,7 +162,7 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
             System.out.println("DO SOMETHING?");
         }
 
-
+        this.update(this.getGraphics());
 
     }
 
