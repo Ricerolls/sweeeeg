@@ -32,10 +32,13 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
     private JPanel topDicePanel;
     private JPanel midDicePanel;
     private JPanel botDicePanel;
-    private JPanel fixPanel;
-    private JPanel emptyPanel;
+    private JPanel[][] dice;
+    private JPanel[][] fixPanel;
+    private JPanel[][] emptyPanel;
+    private JPanel[][] blackPanel;
+    private DiePanel[] die = new DiePanel[4];
     private JButton button;
-    private Die[][] dice;
+  
 
     public PriceIsRight() {
         init();
@@ -67,57 +70,68 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
         // BOT DICE; LOW
         this.botDicePanel = new JPanel();
         this.botDicePanel.setBorder( BorderFactory.createLineBorder( Color.BLUE ) );
+        for (int i = 0; i < 4; i++) {
+            die[i] = new DiePanel();
+        }
         
-        //empty
-        this.emptyPanel = new JPanel();
-        this.emptyPanel.setBorder( BorderFactory.createLineBorder( Color.BLACK ) );
+     
         
         // GENERATE DIE, put them in TOP/BOT Dice Panel
+        this.emptyPanel = new JPanel[3][4];
+        this.fixPanel = new JPanel[3][4];
         this.dice = new Die[3][4];
         initDice();
         
         //Button
         this.button = new JButton("Roll");
         this.button.addActionListener(this);
-        this.button.setActionCommand("roll");
+        this.button.setActionCommand("Roll");
         
         // TOP / BOT Dice Panel
         this.middlePanel.add( topDicePanel );
         this.middlePanel.add( midDicePanel );
         this.middlePanel.add( botDicePanel );
-        this.middlePanel.add( emptyPanel);
+        
 
         // ADD ITEMS TO middlePanel
         this.add(middlePanel, BorderLayout.CENTER );
         this.add( new JLabel( "PAGE_START" ), BorderLayout.PAGE_START );
         this.add(button, BorderLayout.LINE_START );
         this.add( button, BorderLayout.LINE_END );
-        this.add( emptyPanel, BorderLayout.PAGE_END );
+        
         //this.pack();
 
     }
 
     private void initDice() {
-        Die die = new Die();
+        
         Dimension d = new Dimension( 100, 100 );
+        
+        for (int i = 0; i < 4; i++){
+            die[i].setPreferredSize(d);
+            die[i].addMouseListener(this);
+            die[i].setVisible(false);
+        }
         for ( int row = 0; row < dice.length; row++ ) {
             for ( int col = 0; col < dice[row].length; col++ ) {
 
-               
-                die.setPreferredSize( d );
-                die.setSize( d );
-                die.setName( row + "-" + col );
-                die.addMouseListener( this );
+                emptyPanel[row][col] = new JPanel();
+                emptyPanel[row][col].setPreferredSize( d );
+              
+                emptyPanel[row][col].setName( row + "-" + col );
+                emptyPanel[row][col].addMouseListener( this );
+                
+                blackPanel[row][col] = new JPanel();
+                
+//                if ( ( row + col ) % 2 == 0 ) {
+//                    die.setBorder( BorderFactory.createLineBorder( Color.RED ) );
+//                    die.setBackground( Color.GREEN );
+//                } else {
+//                    die.setBorder( BorderFactory.createLineBorder( Color.GREEN ) );
+//                    die.setBackground( Color.RED );
+//                }
 
-                if ( ( row + col ) % 2 == 0 ) {
-                    die.setBorder( BorderFactory.createLineBorder( Color.RED ) );
-                    die.setBackground( Color.GREEN );
-                } else {
-                    die.setBorder( BorderFactory.createLineBorder( Color.GREEN ) );
-                    die.setBackground( Color.RED );
-                }
-
-                this.dice[row][col] = die;
+                
                 if ( row == 0 ) {
                     this.topDicePanel.add( this.dice[row][col] );
                 } else if ( row == 1 ) {
