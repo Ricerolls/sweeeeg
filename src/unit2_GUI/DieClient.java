@@ -18,29 +18,33 @@ import javax.swing.*;
  */
 public class DieClient extends JFrame implements ActionListener {
 
-    Die die = new Die();
+    Die die1 = new Die();
+    Die die2 = new Die();
     JFrame guiWindow = new JFrame("Die Game");
-    DiePanel dice1 = new DiePanel();
-    DiePanel dice2 = new DiePanel();
+    JLabel label;
     JPanel panel = new JPanel();
     JButton button = new JButton("Roll");
     int valueDie = 2;
 
     public DieClient() {
+
         guiWindow.setPreferredSize(new Dimension(600, 600));
         guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(true);
+        
+        panel.add(label);
 
-        panel.add(dice1);
-        panel.add(dice2);
+        panel.add(die1);
+        panel.add(die2);
 
         button.setSize(50, 50);
-        panel.add(button);       
+        panel.add(button);
         button.addActionListener(this);
 
         this.setLayout(new BorderLayout());
         this.add(panel, BorderLayout.SOUTH);
         this.add(panel, BorderLayout.LINE_START);
+        this.add(label, BorderLayout.LINE_END);
         this.add(button, BorderLayout.CENTER);
 
         //set visable and size by set value
@@ -50,22 +54,27 @@ public class DieClient extends JFrame implements ActionListener {
 
     }
     
- 
     public void ActionPreformed(ActionEvent e) {
-
-        dice1.dieValue = valueDie;
-        dice2.dieValue = valueDie;
-        die.totalValue = dice1.dieValue + dice2.dieValue;
+        
+        
+        die1.dieValue = valueDie;
+        die2.dieValue = valueDie;
+        int totalValue = die1.dieValue + die2.dieValue;
         if (e.getSource() == button) {
-            dice1.rollDie(valueDie);
-            dice1.repaint();
-            dice2.rollDie(valueDie);
+            die1.rollDie(valueDie);
+            die1.repaint();
+            die2.rollDie(valueDie);
             this.update(this.getGraphics());
         }
-        if (die.totalValue != 7) {
-            System.out.println("Roll Again");
-        } else if (dice1.dieValue == dice2.dieValue) {
-            System.out.println("Win!");
+        if (totalValue != 7) {
+            this.label.setText("Roll Again");
+        } else if (die1.dieValue == die2.dieValue) {
+            this.label.setText("Win!");
+        } else if (die1.dieValue != die2.dieValue) {
+            this.label.setText("You rolled a : " + 
+        (die1.dieValue + die2.dieValue) + (" Try again!"));
+
+            
         }
 
     }
@@ -77,7 +86,7 @@ public class DieClient extends JFrame implements ActionListener {
 
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new DieGame().setVisible(true);
+                new DieClient().setVisible(true);
             }
         });
     }

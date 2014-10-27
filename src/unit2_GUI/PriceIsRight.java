@@ -166,31 +166,6 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
 
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        System.out.println("Mouse Clicked on " + e.getComponent().getName());
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        // DO NOTHING
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        // DO NOTHING
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        // DO NOTHING
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        // DO NOTHING
-    }
-
     /**
      * @param args the command line arguments
      */
