@@ -36,7 +36,9 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
     private JPanel[][] fixPanel;
     private JPanel[][] emptyPanel;
     private JPanel[][] blackPanel;
-    private DiePanel[] die = new DiePanel[4];
+    private JLabel label;
+    private Die[] die = new Die[4];
+    private boolean rolled = false;
     private JButton button;
 
     public PriceIsRight() {
@@ -46,7 +48,7 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
     public void init() {
 
         for (int i = 0; i < 4; i++) {
-            die[i] = new DiePanel();
+            die[i] = new Die();
         }
         // MAIN WINDOW; The Price is Righta
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -79,6 +81,8 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
         this.fixPanel = new JPanel[3][4];
         this.dice = new Die[3][4];
         initDice();
+        
+        
 
         //Button
         this.button = new JButton("Roll");
@@ -161,7 +165,8 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
         if (e.getActionCommand().equals("roll")) {
             System.out.println("DO SOMETHING?");
         }
-
+        button.setEnabled(false);
+        rolled = true;
         this.update(this.getGraphics());
 
     }
