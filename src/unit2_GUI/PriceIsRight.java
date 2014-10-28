@@ -36,10 +36,11 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
     private JPanel[][] fixPanel;
     private JPanel[][] emptyPanel;
     private JPanel[][] blackPanel;
-    private JLabel label;
+    private JLabel label = new JLabel("Status: ");
     private Die[] die = new Die[4];
     private boolean rolled = false;
     private JButton button;
+    
 
     public PriceIsRight() {
         init();
@@ -82,7 +83,7 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
         this.dice = new Die[3][4];
         initDice();
         
-        
+        this.label.add(this);
 
         //Button
         this.button = new JButton("Roll");
@@ -97,12 +98,21 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
 
         // ADD ITEMS TO middlePanel
         this.add(middlePanel, BorderLayout.CENTER);
-        this.add(new JLabel("PAGE_START"), BorderLayout.PAGE_START);
+        this.add(label, BorderLayout.PAGE_START);
         this.add(button, BorderLayout.LINE_START);
         this.add(button, BorderLayout.LINE_END);
 
         //this.pack();
 
+    }
+    
+    private void randomValue() {
+        String value = "";
+        int die[] = new int [5];
+        for (int i = 0; i < die.length; i++) {
+            int randomValue = (int) (Math.random() * 9);
+            die[i] = randomValue;
+        }
     }
 
     private void initDice() {
