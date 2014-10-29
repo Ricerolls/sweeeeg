@@ -110,7 +110,7 @@ public class PriceIsRight extends JFrame implements ActionListener, MouseListene
         String value = "";
         int die[] = new int [5];
         for (int i = 0; i < die.length; i++) {
-            int randomValue = (int) (Math.random() * 9);
+            int randomValue = (int) (Math.random() * 6);
             die[i] = randomValue;
         }
     }

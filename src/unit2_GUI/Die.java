@@ -47,7 +47,6 @@ public class Die extends JPanel {
     
     @Override
     public void paintComponent(Graphics g) {
-        
         super.paintComponent(g);
         g.setColor(this.color);
         g.fillRect(0, 0, dieLength * sizeFactor, dieLength * sizeFactor);
