@@ -27,7 +27,7 @@ public class Triangle extends JPanel{
     }
 
     public static void setColor(Color color) {
-        Triangle.color = color;
+        Triangle.color = color.red;
     }
 
     public int getxLoc() {
@@ -60,9 +60,9 @@ public class Triangle extends JPanel{
             int px3 = (x1 + x3) / 2;
             int py3 = (y1 + y3) / 2;     
             
-            drawTriangle(g,color.red, level - 1, x1, y1, px1, py1, px2, py2);
-            drawTriangle(g,color.red, level , x2, y2, px2, py2, px3, py3);
-            drawTriangle(g,color.red, level , x3, y3, px3, py3, px1, py1);
+            drawTriangle(g,color, level - 1, x1, y1, px1, py1, px2, py2);
+            drawTriangle(g,color, level , x2, y2, px2, py2, px3, py3);
+            drawTriangle(g,color, level , x3, y3, px3, py3, px1, py1);
         }
         
     }
