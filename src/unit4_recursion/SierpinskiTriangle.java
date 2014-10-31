@@ -23,7 +23,7 @@ public class SierpinskiTriangle {
     } 
     
     public void paintComponent(Graphics g) {
-        g.drawLine(i, i1, i2, i3);
+        Triangle draw = new Triangle();
     }
     
 }
