@@ -19,8 +19,7 @@ public class Triangle extends JPanel{
     private int top;
     private int sideLength;
     private static Color color;
-    private int xLoc;
-    private int yLoc;
+  
 
     public static Color getColor() {
         return color;
@@ -30,21 +29,7 @@ public class Triangle extends JPanel{
         Triangle.color = color.red;
     }
 
-    public int getxLoc() {
-        return xLoc;
-    }
-
-    public void setxLoc(int xLoc) {
-        this.xLoc = xLoc;
-    }
-
-    public int getyLoc() {
-        return yLoc;
-    }
-
-    public void setyLoc(int yLoc) {
-        this.yLoc = yLoc;
-    }
+   
     
     public void drawTriangle(Graphics g, Color color, int level, int x1, int y1, int x2, int y2, int x3, int y3) {
         g.drawLine(x1, y1, x2, y2);
@@ -64,6 +49,7 @@ public class Triangle extends JPanel{
             drawTriangle(g,color, level , x2, y2, px2, py2, px3, py3);
             drawTriangle(g,color, level , x3, y3, px3, py3, px1, py1);
         }
+        
         
     }
 }     
