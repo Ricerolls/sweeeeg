@@ -15,8 +15,7 @@ import javax.swing.*;
  */
 public class Triangle extends JPanel{
     
-    private static int sizeFactor = 10;
-    private int top;
+    
     private int sideLength;
     private static Color color;
   

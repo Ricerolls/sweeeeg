@@ -5,25 +5,17 @@
  */
 package unit4_recursion;
 
-import java.awt.Graphics;
-
 /**
  *
  * @author 1leste
  */
-public class SierpinskiTriangle {
+public class FiveTerms {
 
     /**
      * @param args the command line arguments
      */
-    
-    
-    public static void main(String[] args) {   
-        
-    } 
-    
-    public void paintComponent(Graphics g) {
-        Triangle draw = new Triangle();
+    public static void main(String[] args) {
+        // TODO code application logic here
     }
     
 }
