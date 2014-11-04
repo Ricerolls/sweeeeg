@@ -5,47 +5,40 @@
  */
 package unit4_recursion;
 
+import java.util.Scanner;
+
 /**
  *
  * @author 1leste
  */
 public class pascalsTtriangle {
 
-    public void generateTri(int maxRow) {
-        int row;
-        int col;
+    public void generateTri(int n) {
 
-        for (int i = 0; i < maxRow; i++) {
-            row = i + 1;
-            col = 1;
-            for (int s = 0; s <= i; s++ ) {
-               if(s>0){
-                   col = col * (row - s);
+        for (int i = 0; i < n; i++) {           
+            for (int j = 0; j <= i; j++ ) {
+               
                }
                System.out.print(" ");
             }
             
         }
-    }
-    
-    public void generateTri2D(int maxRow) {
-        int triangle [][] = new int[maxRow][(maxRow + 1)*2];
-        
-        int leftSide;
-        int rightSide;
-        
-        triangle[0][maxRow - 1] = 1;
-        leftSide = maxRow - 1;
-        rightSide = maxRow - 1;
-        for (int i = 0; i < maxRow; i++) {
-            rightSide++;
-            leftSide--;        
-            
-            triangle[i][rightSide] = 1;
-            triangle[i][leftSide] = 1;
+    public static int pascal (int i, int j) {
+        if (j == 0){
+            return 1;
+        }else if (j == i){
+            return 1;
+        } else {
+            return pascal (i - 1, j - 1) + pascal(i-1, j);
         }
     }
+        public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+    }
     
+    }
+
     
-    
-}
+       
+
