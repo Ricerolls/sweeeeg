@@ -9,13 +9,19 @@ package unit4_recursion;
  *
  * @author 1leste
  */
+
 public class FiveTerms {
 
-    /**
-     * @param args the command line arguments
-     */
+    public static void seq1 (int n) {
+        int k = 0;
+        
+        int totalNumber = (n - k) + k;
+        
+    }
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        seq1(5);
+        
     }
     
 }

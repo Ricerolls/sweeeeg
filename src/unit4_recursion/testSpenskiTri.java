@@ -1,0 +1,45 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package unit4_recursion;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import static unit4_recursion.Triangle.drawTriangle;
+
+/**
+ *
+ * @author jefftruong
+ */
+public class testSpenskiTri {
+
+    public static void drawTriangle(Graphics g, Color color, int level, int x1, int y1, int x2, int y2, int x3, int y3) {
+        g.drawLine(x1, y1, x2, y2);
+        g.drawLine(x2, y2, x3, y3);
+        g.drawLine(x3, y3, x1, y1);
+
+        if (level > 0) {
+            int px1 = (x1 + x2) / 2;
+            int py1 = (y1 + y2) / 2;
+            int px2 = (x1 + x3) / 2;
+            int py2 = (y1 + y3) / 2;
+            int px3 = (x1 + x3) / 2;
+            int py3 = (y1 + y3) / 2;
+
+            drawTriangle(g, color, level - 1, x1, y1, px1, py1, px2, py2);
+            drawTriangle(g, color, level, x2, y2, px2, py2, px3, py3);
+            drawTriangle(g, color, level, x3, y3, px3, py3, px1, py1);
+        }
+
+
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args, Graphics g) {
+        drawTriangle(g, Color.RED, 5, 2, 2, 4, 4, 6, 6);
+
+    }
+}
