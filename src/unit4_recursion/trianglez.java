@@ -15,13 +15,16 @@ public class trianglez extends JFrame {
 
     Triangle tri = new Triangle();
     JFrame guiWindow = new JFrame("Triangle");
+    JPanel Triangle = new JPanel();
    
 
     public trianglez() {
-        guiWindow.add(tri);
+        //guiWindow.add(tri);
         guiWindow.setSize(600, 600);
         guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         guiWindow.setVisible(true);
+        //Triangle.add(tri);
+        
     }
 
     public static void main(String[] args) {
