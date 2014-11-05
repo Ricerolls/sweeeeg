@@ -14,23 +14,10 @@ import javax.swing.*;
  * @author 1leste
  */
 public class Triangle extends JPanel{
-    
-    
-    private int sideLength;
-    private static Color color;
-  
-
-    public static Color getColor() {
-        return color;
-    }
-
-    public static void setColor(Color color) {
-        Triangle.color = color.red;
-    }
-
-   
-    
-    public static void drawTriangle(Graphics g, Color color, int level, int x1, int y1, int x2, int y2, int x3, int y3) {
+       
+     
+   public static void drawTriangle(Graphics g, Color color, int level, int x1, int y1, int x2, int y2, int x3, int y3) {
+        g.setColor(Color.RED);
         g.drawLine(x1, y1, x2, y2);
         g.drawLine(x2, y2, x3, y3);
         g.drawLine(x3, y3, x1, y1);
@@ -49,8 +36,14 @@ public class Triangle extends JPanel{
             drawTriangle(g,color, level , x3, y3, px3, py3, px1, py1);
         }
         
-        
+       
     }
+   
+   @Override
+   protected void paintComponent(Graphics g) {
+       int x1 = 500;
+       
+   }
     
     
 }     

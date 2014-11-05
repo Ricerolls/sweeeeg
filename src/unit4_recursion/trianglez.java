@@ -5,6 +5,8 @@
  */
 package unit4_recursion;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import javax.swing.*;
 
 /**
@@ -14,22 +16,18 @@ import javax.swing.*;
 public class trianglez extends JFrame {
 
     Triangle tri = new Triangle();
-    JFrame guiWindow = new JFrame("Triangle");
-    JPanel Triangle = new JPanel();
-   
-
+    
     public trianglez() {
-        //guiWindow.add(tri);
-        guiWindow.setSize(600, 600);
-        guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        guiWindow.setVisible(true);
-        //Triangle.add(tri);
+        setSize(600, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+      
         
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            
+    
+    SwingUtilities.invokeLater(new Runnable() {           
             public void run() {
                 new trianglez().setVisible(true);
             }
