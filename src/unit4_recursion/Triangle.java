@@ -41,7 +41,6 @@ public class Triangle extends JPanel{
    
    @Override
    protected void paintComponent(Graphics g) {
-       int x1 = 500;
        
    }
     
