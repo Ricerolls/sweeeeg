@@ -15,24 +15,19 @@ import javax.swing.*;
  */
 public class trianglez extends JFrame {
 
-    Triangle tri = new Triangle();
+   
     
-    public trianglez() {
-        setSize(600, 600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-      
-        
+    public trianglez() {  
     }
 
     public static void main(String[] args) {
-    
-    SwingUtilities.invokeLater(new Runnable() {           
-            public void run() {
-                new trianglez().setVisible(true);
-            }
-        });
-
+        JFrame frame = new JFrame();
+        Triangle tri = new Triangle();
+        frame.setSize(600, 600);
+        frame.setLocation(100, 100);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(tri);
+        frame.setVisible(true);
     }
 
 }

@@ -32,11 +32,14 @@ public class LetMeOut {
      */
     public boolean findExitFrom(int row, int col) {
         boolean successful = false;
+        //if the exit has a X in the array, add a + and return as true for successful
         if (maze[row][col] == EXIT) {
             maze[row][col] = GOOD_PATH;
             return true;
+            //if its not a exit, replace the char with -
         } else {
             maze[row][col] = TRIED;
+            
             //moves left
             if (maze[row - 1][col] == OPEN || maze[row - 1][col] == EXIT) {
                 successful = findExitFrom(row - 1, col);
@@ -55,7 +58,7 @@ public class LetMeOut {
             if (!successful && maze[row][col + 1] == OPEN || maze[row][col + 1] == EXIT) {
                 successful = findExitFrom(row, col + 1);
             }
-
+            //replaces the char with + for every path that is successful
             if (successful) {
                 maze[row][col] = GOOD_PATH;
             }

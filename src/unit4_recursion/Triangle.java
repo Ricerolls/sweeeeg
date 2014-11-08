@@ -21,7 +21,7 @@ public class Triangle extends JPanel{
         g.drawLine(x1, y1, x2, y2);
         g.drawLine(x2, y2, x3, y3);
         g.drawLine(x3, y3, x1, y1);
-        level = 5;
+        
         
         if (level > 0){
             int px1 = (x1 + x2) / 2;
@@ -41,7 +41,9 @@ public class Triangle extends JPanel{
    
    @Override
    protected void paintComponent(Graphics g) {
-       
+       int level = 7;
+       g.drawLine(200, 200, 400, 400);
+       drawTriangle(g, Color.yellow, level, 50, 50, 200, 200, 350, 350);
    }
     
     
