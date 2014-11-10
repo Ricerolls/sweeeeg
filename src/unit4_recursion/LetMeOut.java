@@ -97,7 +97,7 @@ public class LetMeOut {
             for (int col = 0; col < maze[row].length; col++) {
                 System.out.print(maze[row][col]);
             }
-            System.out.println();
+            System.out.println("  ");
         }
         System.out.println("-------------------------------");
     }
