@@ -12,7 +12,7 @@ package unit5_ValidRecordData;
 public class ClassRecord {
 
     // CLASS CONSTANTS
-    public static final int RECORD_SIZE = 30;
+    protected static final int RECORD_SIZE = 30;
     public static final int LENGTH_TEACHER_NAME = 15;
     public static final int LENGTH_SUBJECT = 12;
 
@@ -36,6 +36,7 @@ public class ClassRecord {
         this.id = -1;
     }
 
+    
     public String getTeacherName() {
         return teacherName;
     }
