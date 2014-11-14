@@ -57,7 +57,7 @@ public class ClassStore extends ClassRecord {
     }
 
     public static void closeFile() {
-        file.closeFile();
+//        file.closeFile();
     }
 
     /**
