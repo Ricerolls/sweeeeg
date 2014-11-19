@@ -13,7 +13,7 @@ public class KpopRecord {
 
     // CLASS CONSTANTS
 
-    protected static final int RECORD_SIZE = 10;
+    protected static final int RECORD_SIZE = 58;
     public static final int LENGTH_ARTIST = 15;
     public static final int LENGTH_SONG = 20;
     public static final int LENGTH_ALBUM = 15;
