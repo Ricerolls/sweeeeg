@@ -17,6 +17,7 @@ public class KpopRecord {
     public static final int LENGTH_ARTIST = 15;
     public static final int LENGTH_SONG = 20;
     public static final int LENGTH_ALBUM = 15;
+    public static final 
 
     // CLASS VARIABLES
     public static int lastID = 0;

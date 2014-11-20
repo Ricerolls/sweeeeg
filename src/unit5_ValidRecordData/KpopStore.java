@@ -5,8 +5,12 @@
  */
 package unit5_ValidRecordData;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,11 +18,24 @@ import javax.swing.JOptionPane;
  * @author 1leste
  */
 public class KpopStore extends KpopRecord {
-
+    static RandomAccessFile recordFile;
     static Scanner input = new Scanner(System.in);
 //    RandomAccessFile recordFile = new RandomAccessFile("kpop.txt", "rw");
     static KpopRecord k2 = new KpopRecord("", "", "", 0);
+    long position, recordNumber;
 
+    public static void openStore() throws IOException {
+        try {
+            recordFile = new RandomAccessFile("kpop.txt", "rw");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void closeStore() throws IOException {
+     recordFile.close();
+     
+    }
+    
     public static void menu() {
 
 //        String myInput;
@@ -61,11 +78,30 @@ public class KpopStore extends KpopRecord {
                 break;
         }
     }
-    public static void readRecord() {
+    public static void readRecord() throws IOException {
         char artistName[] = new char [LENGTH_ARTIST];
         for (int i = 0; i < LENGTH_ARTIST; i++) {
           artistName[i] = recordFile.readChar();
+    }   
+        char songName[] = new char [LENGTH_SONG];
+        for (int i = 0; i < LENGTH_SONG; i++) {
+          songName[i] = recordFile.readChar();
+        
     }
+        char albumName[] = new char [LENGTH_SONG];
+        for (int i = 0; i < LENGTH_SONG; i++) {
+          songName[i] = recordFile.readChar();
+        
+    }
+        char playlistSize[] = new char [LENGTH_PLAYLIST];
+        for (int i = 0; i < LENGTH_SONG; i++) {
+          songName[i] = recordFile.readChar();
+        
+    }
+        k2.setArtistName(recordFile.readString());
+        
+    }
+        public static void writeRecord() {
         
     }
     public static void addRecord() {
@@ -81,12 +117,12 @@ public class KpopStore extends KpopRecord {
         System.out.println("Enter the playlist size or keep current:  ");
         String playlistSize = input.nextLine();
         k2.setPlaylistSize(Integer.parseInt(playlistSize));
-
+        
     }
 
     public static void displayRecord() {
         System.out.println(k2.toString());
-
+        
     }
 
     public static void editRecord() {
@@ -125,8 +161,11 @@ public class KpopStore extends KpopRecord {
 
     public static void main(String[] args) throws Exception {
         long position, recordNumber;
-        RandomAccessFile recordFile = new RandomAccessFile("kpop.txt", "rw");
+//        RandomAccessFile recordFile = new RandomAccessFile("kpop.txt", "rw");
+        openStore();
         menu();
+        
+        
         recordNumber = recordFile.length() / k2.RECORD_SIZE;
         System.out.println("RECORD SIZE: " + recordFile.length());
         System.out.println("There is currently " + recordNumber + " records in this file");
@@ -138,7 +177,8 @@ public class KpopStore extends KpopRecord {
             recordFile.writeChars(k2.getArtistName());
             recordFile.writeChars(k2.getSongName());
             recordFile.writeChar(k2.getPlaylistSize());
-           
+            
+           closeStore();
             
 //        KpopRecord k1 = new KpopRecord("Taeyang", "Eyes noes Lips", "Swag", 0);
 
