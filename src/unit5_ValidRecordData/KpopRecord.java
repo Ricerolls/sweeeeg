@@ -17,7 +17,7 @@ public class KpopRecord {
     public static final int LENGTH_ARTIST = 15;
     public static final int LENGTH_SONG = 20;
     public static final int LENGTH_ALBUM = 15;
-    public static final 
+    public static final int LENGTH_PLAYLIST = 20;
 
     // CLASS VARIABLES
     public static int lastID = 0;
@@ -27,7 +27,7 @@ public class KpopRecord {
     private String artistName;
     private String songName;
     private String albumName;
-    private int playlistSize;
+    protected int playlistSize;
     private int id;
     
     public KpopRecord() {
@@ -104,7 +104,7 @@ public class KpopRecord {
 
     @Override
     public String toString() {
-        return "KpopRecord{" + "artistName=" + artistName + ", songName=" + songName + ", albumName=" + albumName + ", playlistSize=" + playlistSize + ", id=" + id + '}';
+        return "KpopRecord{" + "artistName =" + artistName + ", songName =" + songName + ", albumName=" + albumName + ", playlistSize=" + playlistSize + ", id=" + id + '}';
     }
 
    
