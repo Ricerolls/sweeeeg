@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 public class KpopStore extends KpopRecord {
     static RandomAccessFile recordFile;
     static Scanner input = new Scanner(System.in);
-//    RandomAccessFile recordFile = new RandomAccessFile("kpop.txt", "rw");
+
    
     long position, recordNumber;
 
@@ -116,6 +116,11 @@ public class KpopStore extends KpopRecord {
     
         public static KpopRecord writeRecord() throws IOException {
             KpopRecord k2 = new KpopRecord();
+//            if (k2.getId() == -1) {
+//                recordFile.seek(recordFile.length());
+//                        } else {;
+//                        recordFile.seek(k2.getId() * 97);
+//            }
             recordFile.writeChars(k2.getArtistName());
             recordFile.writeChars(k2.getSongName());
             recordFile.writeChars(k2.getAlbumName());
@@ -148,8 +153,7 @@ public class KpopStore extends KpopRecord {
     }
 
     public static KpopRecord editRecord() throws IOException {
-//        RandomAccessFile recordFile = new RandomAccessFile("kpop.txt", "rw");
-//        KpopRecord k2 = new KpopRecord();2
+
         KpopRecord k2 = new KpopRecord();
         System.out.println("Enter a artist or keep the current one: ");
         String artist = input.nextLine();
@@ -184,7 +188,7 @@ public class KpopStore extends KpopRecord {
     public static void main(String[] args) throws Exception {
         long position, recordNumber;
         KpopRecord k2 = new KpopRecord();
-//        RandomAccessFile recordFile = new RandomAccessFile("kpop.txt", "rw");
+
         openStore();
         menu();
         
