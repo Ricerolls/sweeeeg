@@ -28,7 +28,7 @@ public class KpopRecord {
     private String songName;
     private String albumName;
     protected int playlistSize;
-    private int id;
+    private long id;
     
     public KpopRecord() {
         this("N/A","N/A","N/A", 0);
@@ -43,11 +43,11 @@ public class KpopRecord {
         this.id = -1;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
