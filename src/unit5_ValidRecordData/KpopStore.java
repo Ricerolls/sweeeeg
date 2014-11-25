@@ -146,7 +146,7 @@ public class KpopStore extends KpopRecord {
         System.out.println("Enter the playlist size or keep current:  ");
         String playlistSize = input.nextLine();
         k2.setPlaylistSize(Integer.parseInt(playlistSize));
-        writeRecord(k2);
+        
         return writeRecord( k2 );
         
     }
