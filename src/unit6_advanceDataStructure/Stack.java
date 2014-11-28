@@ -36,22 +36,29 @@ public class Stack implements StackInterface {
     public int top() {
         if (isFull() != false) {
         }
-        return top++;
+        return data[top++];
     }
 
     public int pop() {
 
-        return top--;
+        return data[top--];
     }
 
     public void push(int num) {
-        if (top != -1) {
-        }return ;
+        if (!isFull()) {
+            top++;
+            data[top] = num;
 
+            System.out.println("You pushed: " + data[top]);
+        } else
+            System.out.println("Size is full");
+        
     }
 
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int size;
+        size = top + 1;
+        return size;
     }
 
     public void makeEmpty() {
@@ -61,10 +68,9 @@ public class Stack implements StackInterface {
     public static void main(String[] args) {
 
         Stack s = new Stack(10);
-        
+
         s.push(5);
         System.out.println("Is empty? " + s.isEmpty());
-        
 
     }
 
