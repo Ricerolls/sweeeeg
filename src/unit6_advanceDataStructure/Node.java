@@ -20,17 +20,17 @@ public class Node implements NodeInterface{
 
     @Override
     public Node getNext() {
-        throw new UnsupportedOperationException( "Not supported yet." ); //To change body of generated methods, choose Tools | Templates.
+        return this.next;
     }
 
     @Override
     public void setNext( Node newNode ) {
-        throw new UnsupportedOperationException( "Not supported yet." ); //To change body of generated methods, choose Tools | Templates.
+        this.next = newNode;
     }
 
     @Override
     public String getData() {
-        throw new UnsupportedOperationException( "Not supported yet." ); //To change body of generated methods, choose Tools | Templates.
+        return this.data;
     }       
 
 }
