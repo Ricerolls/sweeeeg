@@ -15,76 +15,95 @@ public class LinkList implements LinklistInterface {
     Node head;
 
     public LinkList() {
+        //set the values to nothing
         this.tail = null;
         this.head = null;
     }
 
     public int size() {
+        //set size and create new node
         int size = 0;
         Node n = head;
+        //if there is something within the head
         if (n != null) {
-            do {
+            //the head size increase, and set the head to the next node
+            do {               
                 size++;
                 n = n.getNext();
+                //keep doing this while there is something in the node
             } while (n != null);
         }
+       
+        //returns the size
         return size;
     }
-
+    //makes data empty
     public void makeEmpty() {
+        
+        //nothing within these variable
         this.tail = null;
         this.head = null;
     }
-
+    //adds string at the front
     public void addAtFront(String str) {
+        //creates new node
         Node newNode = new Node(str);
         if (size() == 0) {
+            //the tail is equal to zero
             this.tail = newNode;
         } else {
+            //set the string at the front of the tail
             newNode.setNext(head);
         }
+        //new node is now the head
         this.head = newNode;
-        //newNode.setNext(head);
+       
     }
-
+    //adds at end
     public void addAtEnd(String str) {
         Node newNode = new Node(str);
-        if (size() == 0) {
-            this.head = newNode;
-        } else {
-            newNode.setNext(tail);
-        }
+        this.tail.setNext(newNode);
         this.tail = newNode;
-//            
 //        newNode.setNext(tail);
-//        tail = newNode;
     }
-
+    
+    //removes string
     public void remove(String str) {
         if (size() > 0) {
+            //new node created, which will be the head
             Node nFront = head;
-            Node nAfter = head.getNext();
             boolean removed = false;
-            do {
-                if (nAfter.getData().equalsIgnoreCase(str)) {
-                    nFront = nAfter.getNext();
-                    nAfter.setNext(null);
-                    removed = true;
-                }
-                
-                nFront = nAfter;
-                nAfter = nAfter.getNext();
-            } while (!removed || nFront.getNext() != null);
+            //gets the data at the head by ignoring caplocks
+            if (nFront.getData().equalsIgnoreCase(str)) {
+                this.head = head.getNext();
+                //if the string at the front isn't the same
+            } else {
+                do {
+                    //get the data after that and skips 1 node and returns true
+                    if (nFront.getNext().getData().equalsIgnoreCase(str)) {
+                        nFront.setNext(nFront.getNext().getNext());
+                        removed = true;
+                    }
+                    nFront = nFront.getNext();
+                    //loop this when its not true
+                } while (!removed || nFront.getNext() != null);
+            }
         }
     }
 
+    //prints string out
     public String toString() {
         String s = "";
+        //if there is a string in head
         if (this.head != null) {
+            //create a new null that is at head
             Node n = head;
             do {
-                s = s + n.getData() + " | ";
+                //create a string with the string data
+                s =  s + n.getData() + " | ";
+                //node will get the next node after that
                 n = n.getNext();
+                //loop this when there is a string in the node
             } while (n != null);
         }
         return s;
@@ -92,17 +111,23 @@ public class LinkList implements LinklistInterface {
 
     public static void main(String[] args) {
         LinkList l = new LinkList();
-
+//        l.addAtEnd("s");
+        
         l.addAtFront("Fred");
+        
         l.addAtFront("Barney");
         l.addAtFront("Wilma");
-        System.out.println(l.toString());
-        l.remove("Wilma");
-        System.out.println(l.toString());
-        l.addAtEnd("s");
-        System.out.println(l.toString());
         
-        //l.addAtFront( "Barney" );
+        l.addAtFront("df");
+        l.addAtFront("swag");
+        System.out.println(l.toString());
+        l.remove("Barney");
+       
+//        l.remove("s");
+        System.out.println(l.toString());
+      
+       
 
+        //l.addAtFront( "Barney" );
     }
 }
