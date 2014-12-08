@@ -10,39 +10,52 @@ package unit6_advanceDataStructure;
  * @author 1leste
  */
 public class Hash implements HashInterface {
-
-    int size;
-    int data[];
-
-    public Hash() {
-
+    
+    
+    private int key;
+    private int value;
+    int [] table;
+    int capacity;
+  
+    public Hash(int key, int value) {
+           this.key = key;
+           this.value = value; 
     }
 
     public int size() {
-        int size = 0;
-        return size;
+     return table.length;
     }
 
     public void resize() {
-
+        double loadFactor = 0;
+        if (loadFactor >= 0.75) {
+            loadFactor = 0.25;
+           int [] table = new int [capacity];
+           capacity = 0;
+       
+              
+        }
     }
 
     public int capacity() {
         int i = 0;
-
+        i = size();
+        
         return i;
     }
 
     public void loadFactor() {
-
+        
     }
 
     public void makeEmpty() {
-
+        if (size() != 0) {
+            
+        }
     }
 
     public boolean isEmpty() {
-        if (size != 0) {
+        if (size() != 0) {
             return false;
         } else {
             return true;
@@ -50,6 +63,8 @@ public class Hash implements HashInterface {
     }
 
     public int get(int key) {
+        int hash = (key % table.length);
+        
         return key;
     }
 
@@ -58,7 +73,7 @@ public class Hash implements HashInterface {
     }
 
     public void containsKey(int key) {
-        
+       
     }
 
     public void contains(int key) {
@@ -67,6 +82,13 @@ public class Hash implements HashInterface {
 
     public int hash(int key) {
         return key;
+    }
+    
+    public static void main( String[] args ) throws Exception {
+        int [] data = {7,5,4,5};
+         Hash hash =  new Hash(10,10);
+         
+         
     }
 
 }
