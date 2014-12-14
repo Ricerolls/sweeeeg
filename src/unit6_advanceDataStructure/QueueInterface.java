@@ -11,11 +11,17 @@ package unit6_advanceDataStructure;
  */
 public interface QueueInterface {
     
-    public int enqueue();
+    public int front();
+    
+    public int back();
+    
+    public void enqueue( int value );
 
     public int dequeue();
 
     public int size();
+    
+    public int capacity();
 
     public boolean isEmpty();
     

@@ -27,24 +27,26 @@ public class LinkList implements LinklistInterface {
         //if there is something within the head
         if (n != null) {
             //the head size increase, and set the head to the next node
-            do {               
+            do {
                 size++;
                 n = n.getNext();
                 //keep doing this while there is something in the node
             } while (n != null);
         }
-       
+
         //returns the size
         return size;
     }
     //makes data empty
+
     public void makeEmpty() {
-        
+
         //nothing within these variable
         this.tail = null;
         this.head = null;
     }
     //adds string at the front
+
     public void addAtFront(String str) {
         //creates new node
         Node newNode = new Node(str);
@@ -57,16 +59,21 @@ public class LinkList implements LinklistInterface {
         }
         //new node is now the head
         this.head = newNode;
-       
+
     }
     //adds at end
+
     public void addAtEnd(String str) {
         Node newNode = new Node(str);
-        this.tail.setNext(newNode);
-        this.tail = newNode;
+        if (this.size() == 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.setNext(newNode);
+        }
 //        newNode.setNext(tail);
     }
-    
+
     //removes string
     public void remove(String str) {
         if (size() > 0) {
@@ -100,7 +107,7 @@ public class LinkList implements LinklistInterface {
             Node n = head;
             do {
                 //create a string with the string data
-                s =  s + n.getData() + " | ";
+                s = s + n.getData() + " | ";
                 //node will get the next node after that
                 n = n.getNext();
                 //loop this when there is a string in the node
@@ -112,21 +119,21 @@ public class LinkList implements LinklistInterface {
     public static void main(String[] args) {
         LinkList l = new LinkList();
 //        l.addAtEnd("s");
-        
+
         l.addAtFront("Fred");
-        
+
         l.addAtFront("Barney");
         l.addAtFront("Wilma");
-        
+
         l.addAtFront("df");
         l.addAtFront("swag");
         System.out.println(l.toString());
         l.remove("Barney");
-       
+
 //        l.remove("s");
         System.out.println(l.toString());
-      
-       
+
+
 
         //l.addAtFront( "Barney" );
     }
