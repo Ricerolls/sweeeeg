@@ -44,10 +44,10 @@ public class Stack implements StackInterface {
         return data[top--];
     }
 
-    public void push(int num) {
+    public void push(int value) {
         if (!isFull()) {
             top++;
-            data[top] = num;
+            data[top] = value;
 
             System.out.println("You pushed: " + data[top]);
         } else
@@ -64,7 +64,12 @@ public class Stack implements StackInterface {
     public void makeEmpty() {
         top = -1;
     }
-
+ 
+    public int capacity() {
+        size = data.length;
+        return size;
+    }
+    
     public static void main(String[] args) {
 
         Stack s = new Stack(10);
@@ -73,5 +78,7 @@ public class Stack implements StackInterface {
         System.out.println("Is empty? " + s.isEmpty());
 
     }
+
+   
 
 }

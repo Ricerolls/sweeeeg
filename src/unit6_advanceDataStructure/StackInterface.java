@@ -15,11 +15,15 @@ public interface StackInterface {
 
     public int pop();
 
-    public void push( int num );
+    public void push( int value );
 
     public int size();
+    
+    public int capacity();
 
     public boolean isEmpty();
+    
+    public boolean isFull();
 
     public void makeEmpty();
 }
