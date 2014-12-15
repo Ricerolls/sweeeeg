@@ -9,8 +9,9 @@ package unit6_advanceDataStructure;
  * @author jefftruong
  */
 public class Queue implements QueueInterface {
-
-    int[] array;
+    
+    
+     int[] array;
     private int size = 0;
     private int front = 0;
     private int back = 0;
@@ -80,12 +81,19 @@ public class Queue implements QueueInterface {
             array[back] = value;
             back = (back + 1) % array.length;
             size++;
+            
         }
-
     }
 
     public int capacity() {
         size = array.length;
         return size;
+    }
+    
+    public static void main(String[] args) { 
+        Queue q = new Queue (2);
+        q.enqueue(7); 
+        q.enqueue(5);
+      
     }
 }

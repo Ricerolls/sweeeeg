@@ -16,7 +16,7 @@ public interface HashInterface {
 
     public int capacity();
 
-    public void loadFactor();
+    public double loadFactor();
 
     public void makeEmpty();
 
@@ -26,7 +26,7 @@ public interface HashInterface {
 
     public void put( int value );
 
-    public void containsKey( int key );
+    public boolean containsKey( int key );
 
     public int hash( int key );
     
