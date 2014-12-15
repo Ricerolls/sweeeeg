@@ -70,13 +70,24 @@ public class Hash implements HashInterface {
     }
 
     public void put(int value) {
+         //First check if the array needs to be resized
+        if (this.loadFactor() > 0.75) {
+            this.resize();
+        }
+
+        int location = 0; //This will hold the location in the table where the value will end up
+        boolean endOfArrayFlag = false;  //Used to check if we've hit the end of the array, then need to put the value somewhere at the start
+        int hash = this.hash(value); //The hash code of the value
+        int counter = 0; //Used for checking for the next free space in the array
+        
     }
 
     public void contains(int key) {
     }
 
     public int hash(int key) {
-        return key;
+        int hash = key % table.length;
+        return hash;
     }
 
     public double loadFactor() {
@@ -86,7 +97,7 @@ public class Hash implements HashInterface {
     }
 
     public boolean containsKey(int key) {
-        if (hash(key) == -1) {
+        if (hash(key) < 0 ) {
             return false;
         }
         return true;
@@ -95,7 +106,7 @@ public class Hash implements HashInterface {
     public static void main(String[] args) throws Exception {
         int[] data = {7, 5, 4, 5};
         Hash hash = new Hash(10, 10);
-
+        
 
     }
 }

@@ -92,7 +92,9 @@ public class Queue implements QueueInterface {
     
     public static void main(String[] args) { 
         Queue q = new Queue (2);
+        
         q.enqueue(7); 
+        
         q.enqueue(5);
       
     }
