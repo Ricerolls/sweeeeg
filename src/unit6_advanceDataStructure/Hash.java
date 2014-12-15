@@ -70,15 +70,15 @@ public class Hash implements HashInterface {
     }
 
     public void put(int value) {
-         //First check if the array needs to be resized
+         
         if (this.loadFactor() > 0.75) {
             this.resize();
         }
 
-        int location = 0; //This will hold the location in the table where the value will end up
-        boolean endOfArrayFlag = false;  //Used to check if we've hit the end of the array, then need to put the value somewhere at the start
-        int hash = this.hash(value); //The hash code of the value
-        int counter = 0; //Used for checking for the next free space in the array
+        int location = 0; 
+        boolean endOfArrayFlag = false;  
+        int hash = this.hash(value); 
+        int counter = 0;
         
     }
 
