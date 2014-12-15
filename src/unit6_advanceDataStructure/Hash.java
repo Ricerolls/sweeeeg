@@ -80,7 +80,9 @@ public class Hash implements HashInterface {
     }
 
     public double loadFactor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        double loadFactor = 0;
+        
+        return 
     }
 
     public boolean containsKey(int key) {
