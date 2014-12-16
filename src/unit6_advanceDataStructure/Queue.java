@@ -54,7 +54,7 @@ public class Queue implements QueueInterface {
     }
 
     public boolean isFull() {
-        if (size != array.length) {
+        if (size != capacity()) {
             return false;
         }
         return true;
@@ -63,6 +63,8 @@ public class Queue implements QueueInterface {
     public void makeEmpty() {
         if (size != 0) {
             size = 0;
+            front = -1;
+            back = -1;
         }
     }
 
@@ -81,7 +83,7 @@ public class Queue implements QueueInterface {
             array[back] = value;
             back = (back + 1) % array.length;
             size++;
-            
+     
         }
     }
 
@@ -91,11 +93,13 @@ public class Queue implements QueueInterface {
     }
     
     public static void main(String[] args) { 
-        Queue q = new Queue (2);
+        Queue q = new Queue (3);
         
         q.enqueue(7); 
-        
+        q.enqueue(4);
         q.enqueue(5);
+        q.dequeue();
+        
       
     }
 }

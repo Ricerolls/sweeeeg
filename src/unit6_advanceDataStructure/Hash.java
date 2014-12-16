@@ -13,33 +13,51 @@ public class Hash implements HashInterface {
 
     private int key;
     private int value;
-    Hash[] table;
+    public int[] table;
     int capacity;
 
-    public Hash(int key, int value) {
-        this.key = key;
-        this.value = value;
+    public Hash(int size) {
+        int newinitialSize = makeprime(size);
+        table = new int[newinitialSize];
+        makeEmpty();
     }
+    
 
     public int size() {
-        return table.length;
+        int size = 0;
+        for (int i = 0; i < table.length; i++) {
+            if (table[i] != -1) {
+                size++;
+            }
+        }
+        return size;
     }
 
     public void resize() {
-        double loadFactor = 0;
-        if (loadFactor >= 0.75) {
-            loadFactor = 0.25;
-            int[] table = new int[capacity];
-            capacity = 0;
 
+        if (loadFactor() >= 0.75) {
+            int[] copy = new int[capacity];
+            capacity = 0;
+            int j = 0;
+            for (int i = 0; i < table.length; i++) {
+                if (table[i] != -1) {
+                    copy[j] = table[i];
+                    j++;
+                }
+            }
+            table = null;
+            table = new int[copy.length * 4];
+            makeEmpty();
+            for (int i = 0; i < copy.length; i++) {
+                put(copy[i]);
+            }
+        } else {
+            System.out.println("Cant resize");
         }
     }
 
     public int capacity() {
-        int i = 0;
-        i = size();
-
-        return i;
+        return table.length;
     }
 
     public void makeEmpty() {
@@ -57,32 +75,42 @@ public class Hash implements HashInterface {
     }
 
     public int get(int key) {
-        int hash = (key % table.length);
-        while (table[hash] != null) {
-            hash = (hash + 1) % table.length;
-        }
-        if (table[hash] == null) {
-            return -1;
+        int num = 0;
+        if (table[key] != -1) {
+            num = table[key];
         } else {
-            return table[hash].value;
+            num = -1;
         }
-
+        return num;
     }
 
     public void put(int value) {
-         
-        if (this.loadFactor() > 0.75) {
-            this.resize();
+
+        if (loadFactor() > 0.75) {
+            resize();
         }
-
-        int location = 0; 
-        boolean endOfArrayFlag = false;  
-        int hash = this.hash(value); 
-        int counter = 0;
-        
-    }
-
-    public void contains(int key) {
+        capacity++;
+        int counterCol = 0;
+        if (value >= 0) {
+            int hash = this.hash(value);
+            int location = 0;
+            while (location == 0) {
+                if (hash < table.length) {
+                    if (table[hash] == -1) {
+                        table[hash] = value;
+                        location = 1;
+                    } else {
+                        counterCol++;
+                        hash++;
+                    }
+                } else 
+                    hash = 0;
+            }
+        }  
+        System.out.print("# of collisions: " + counterCol + "\n");
+        if (loadFactor() >= 0.75) {
+            resize();
+      }        
     }
 
     public int hash(int key) {
@@ -91,22 +119,43 @@ public class Hash implements HashInterface {
     }
 
     public double loadFactor() {
-        double loadFactor = 0;
-        
-        return 
+         return (double)size() / (double)capacity();
     }
 
     public boolean containsKey(int key) {
-        if (hash(key) < 0 ) {
+        if (hash(key) < 0) {
             return false;
         }
         return true;
     }
 
-    public static void main(String[] args) throws Exception {
-        int[] data = {7, 5, 4, 5};
-        Hash hash = new Hash(10, 10);
-        
-
+    public int makeprime(int num) {
+        if (isPrime(num)) {
+            return num;
+        } else {
+            return makeprime(num + 1);
+        }
     }
+
+    public boolean isPrime(int num) {
+        if (Math.abs(num) == 2) {
+            return true;
+        }
+        if (num % 2 == 0) {
+            return false;
+        }
+        for (int i = 3; i * i <= num; i += 2) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+//    public static void main(String[] args) throws Exception {
+//        int[] data = {7, 5, 4, 5};
+//        Hash hash = new Hash(10, 10);
+//        
+//
+//    }
 }
