@@ -124,7 +124,7 @@ public class LinkList implements LinklistInterface {
 
         l.addAtFront("Barney");
         l.addAtFront("Wilma");
-
+        l.addAtEnd("swag");
         l.addAtFront("df");
         l.addAtFront("swag");
         System.out.println(l.toString());
