@@ -62,7 +62,7 @@ void temperature() {
         
     }
     for (i = 0; i <= totalDays; i++) {
-       printf("The temperature on %s will be %d Degrees C\n" , &dayName[i], &day[i]);
+       printf("The temperature on %s will be %d Degrees C\n" , dayName[i], day[i]);
     }
     
 }
