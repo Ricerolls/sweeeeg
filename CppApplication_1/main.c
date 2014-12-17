@@ -42,7 +42,7 @@ void closetwo() {
 
 void temperature() {
     int totalDays = 6;
-    int *day[totalDays];
+    int day[totalDays];
 
     char* dayName[7];
         
