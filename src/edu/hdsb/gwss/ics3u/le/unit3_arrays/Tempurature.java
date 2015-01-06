@@ -28,7 +28,7 @@ public class Tempurature {
             temperature[i] = input.nextInt();
         }
         for( int i = 0; i < temperature.length; i++ )
-            System.out.print( days[i] + ": " + temperature[i] + "degree" );
+            System.out.print( days[i] + ": " + temperature[i] + " degree " );
         
     }
 }
