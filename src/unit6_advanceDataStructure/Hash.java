@@ -61,9 +61,9 @@ public class Hash implements HashInterface {
     }
 
     public void makeEmpty() {
-        if (size() != 0) {
+         for (int i = 0; i < table.length; i++) {
+            table[i] = -1;
         }
-
     }
 
     public boolean isEmpty() {
@@ -75,14 +75,35 @@ public class Hash implements HashInterface {
     }
 
     public int get(int key) {
-        int num = 0;
-        if (table[key] != -1) {
-            num = table[key];
-        } else {
-            num = -1;
+        if (hash(key) <= table.length) {
+           boolean exist = false;
+            int hash = this.hash(key);
+            while (!exist) {
+                if (hash < table.length) {
+                    if (table[hash] == key) {
+                        exist = true;
+                        return hash;
+                    }
+                    hash++;
+                } else {
+                    hash = 0;
+                }
+            }
+            return -1;
         }
-        return num;
-    }
+        return -1;
+    } 
+        
+        
+//        int num = 0;
+//        if (table[key] != -1) {
+//            num = table[key];
+//        } else {
+//            num = -1;
+//        }
+//        return num;
+//    }
+    
 
     public void put(int value) {
 
