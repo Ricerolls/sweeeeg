@@ -38,13 +38,20 @@ public class LinkList implements LinklistInterface {
         return size;
     }
     //makes data empty
-
+    public boolean isEmpty() {
+        if (size() == 0) {
+            return true;
+        } else {
+        return false;
+    }
+    }
     public void makeEmpty() {
 
         //nothing within these variable
         this.tail = null;
         this.head = null;
     }
+    
     //adds string at the front
 
     public void addAtFront(String str) {
@@ -86,7 +93,6 @@ public class LinkList implements LinklistInterface {
                 //if the string at the front isn't the same
             } else {
                 do {
-                    //get the data after that and skips 1 node and returns true
                     if (nFront.getNext().getData().equalsIgnoreCase(str)) {
                         nFront.setNext(nFront.getNext().getNext());
                         removed = true;
@@ -118,23 +124,18 @@ public class LinkList implements LinklistInterface {
 
     public static void main(String[] args) {
         LinkList l = new LinkList();
-//        l.addAtEnd("s");
 
         l.addAtFront("Fred");
-
         l.addAtFront("Barney");
         l.addAtFront("Wilma");
         l.addAtEnd("swag");
-        l.addAtFront("df");
-        l.addAtFront("swag");
-        System.out.println(l.toString());
-        l.remove("Barney");
-
-//        l.remove("s");
+        
         System.out.println(l.toString());
 
+        l.remove("swag");
+        System.out.println(l.toString());
 
-
-        //l.addAtFront( "Barney" );
     }
+
+    
 }

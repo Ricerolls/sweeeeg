@@ -12,7 +12,7 @@ package unit6_advanceDataStructure;
 public interface LinklistInterface {
 
     public int size();
-
+    public boolean isEmpty();
     public void makeEmpty();
 
     /**
